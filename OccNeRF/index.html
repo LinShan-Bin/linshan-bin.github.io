@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="OccNeRF: Self-Supervised Multi-Camera Occupancy Prediction with Neural Radiance Fields.">
+  <meta name="keywords" content="OccNeRF, occupancy, self-supervise">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OccNeRF: Self-Supervised Multi-Camera Occupancy Prediction with Neural Radiance Fields</title>
+ 
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">OccNeRF: Self-Supervised Multi-Camera Occupancy Prediction with Neural Radiance Fields</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/LinShan-Bin">Chubin Zhang</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://github.com/JunchengYan">Juncheng Yan</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://weiyithu.github.io/">Yi Wei</a><sup>1,2*</sup>,</span>
+             <br>
+            <span class="author-block">
+              <a href="https://www.jiaxinli.me/">Jiaxin Li</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://github">Li Liu</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://andytang15.github.io/">Yansong Tang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://duanyueqi.github.io/">Yueqi Duan</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/">Jiwen Lu</a><sup>1,2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Tsinghua University &nbsp;&nbsp;</span>
+            <br>
+            <span class="author-block"><sup>2</sup>Beijing National Research Center for Information Science and Technology &nbsp;&nbsp;</span>
+            <br>
+            <span class="author-block"><sup>3</sup>Gaussian Robotics &nbsp;&nbsp;</span>
+            <br>
+            <span class="author-block"><sup>4</sup>Xiaomi Car &nbsp;&nbsp;</span>
+          </div>
+          <!-- <h1 style="font-size:24px;font-weight:bold">arXiv</h1>
+          <div class="column has-text-centered"> -->
+            <div class="publication-links">
+              <!-- PDF Link. -->
+  <!--             <span class="link-block">
+                <a href="static/paper.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="http://arxiv.org/abs/TODO"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/LinShan-Bin/OccNeRF"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds">
+        <h2 class="title is-2">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            As a fundamental task of vision-based perception, 3D occupancy prediction reconstructs 3D structures of surrounding environments. 
+            It provides detailed information for autonomous driving planning and navigation. 
+            However, most existing methods heavily rely on the LiDAR point clouds to generate occupancy ground truth, 
+            which is not available in the vision-based system. 
+            In this paper, we propose an OccNeRF method for <b>self-supervised multi-camera occupancy prediction</b>. 
+            Different from bounded 3D occupancy labels, we need to consider unbounded scenes with raw image supervision. 
+            To solve the issue, we parameterize the reconstructed occupancy fields and reorganize the sampling strategy. 
+            The neural rendering is adopted to convert occupancy fields to multi-camera depth maps, supervised by multi-frame photometric consistency.  
+            Moreover, for semantic occupancy prediction, we design several strategies to polish the prompts and filter the outputs of a pretrained open-vocabulary 2D segmentation model. 
+            Extensive experiments for both self-supervised depth estimation and semantic occupancy prediction tasks on nuScenes dataset demonstrate the effectiveness of our method.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div align="center" style="margin-top:40px;" style="margin-bottom:80px;">
+<img style='height: auto; width:40%; object-fit: contain' src="static/images/overview.jpg" alt="overview_image">
+</div> 
+
+
+<section class="section">
+  <div class="container">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds">
+        <h2 class="title is-2">Method</h2>
+        <div class="content has-text-justified">
+          <p>
+            The picture below is a brief summary of our method. We first use a 2D backbone to extract multi-camera features, which are lifted to 3D space to get volume
+            features with interpolation. The <b>parameterized occupancy fields</b> are reconstructed to describe <b>unbounded scenes</b>. To obtain the rendered
+            depth and semantic maps, we perform volume rendering with our <b>reorganized sampling strategy</b>. The multi-frame depths are supervised
+            by photometric loss. For semantic prediction, we adopted pretrained Grounded-SAM with prompts cleaning. The green arrow indicates
+            supervision signals.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div align="center" style="margin-top:40px;" style="margin-bottom:80px;">
+<img style='height: auto; width:60%; object-fit: contain' src="static/images/pipeline.jpg" alt="overview_image">
+</div> 
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 align="center"  class="title is-2">Visualization</h2>
+
+        <!-- Ours vs. LLFF -->
+        <h3 align="center" class="title is-4">Depth Estimation </h3>
+        <div class="content has-text-justified">
+        </div>
+        <div class="content has-text-centered">
+          <video poster='static/images/occnerf-demo-0.png'
+                 id="replay-video"
+                 controls
+                 muted
+                 width="60%">
+            <source src="static/videos/occnerf-demo.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+
+        <h3 align="center" style="margin-top:80px;"  class="title is-4">Ours Finetuned vs. NeRF </h3>
+        <div class="content has-text-justified">
+        </div>
+        <div class="content has-text-centered">
+          <video poster='static/images/occnerf-demo-sem-0.png'
+                 id="replay-video"
+                 controls
+                 muted
+                 width="60%">
+                 <source src="static/videos/occnerf-demo-sem.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+@article{chubin2023occnerf, 
+  title   = {OccNeRF: Self-Supervised Multi-Camera Occupancy Prediction with Neural Radiance Fields}, 
+  author  = {Chubin Zhang and Juncheng Yan and Yi Wei and Jiaxin Li and Li Liu and Yansong Tang and Yueqi Duan and Jiwen Lu},
+  journal = {arXiv preprint arXiv:TODO},
+  year    = {2023}
+}
+</code></pre>
+  </div>
+</section>
+    
+
+<footer class="footer">
+  <div align="center" class="container">
+    <div class="columns is-centered">
+        <div class="content">
+            This website is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>.
+        </div>
+      </div>
+    </div>
+</footer>
+
+</body>
+</html>
