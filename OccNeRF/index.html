@@ -71,35 +71,36 @@
             </span>
           </div>
 
+          <div align="center" style="margin-bottom:20px;">
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>Tsinghua University &nbsp;&nbsp;</span>
-            <br>
             <span class="author-block"><sup>2</sup>Beijing National Research Center for Information Science and Technology &nbsp;&nbsp;</span>
             <br>
             <span class="author-block"><sup>3</sup>Gaussian Robotics &nbsp;&nbsp;</span>
-            <br>
             <span class="author-block"><sup>4</sup>Xiaomi Car &nbsp;&nbsp;</span>
           </div>
+          </div>
+
           <!-- <h1 style="font-size:24px;font-weight:bold">arXiv</h1>
           <div class="column has-text-centered"> -->
             <div class="publication-links">
               <!-- PDF Link. -->
-  <!--             <span class="link-block">
-                <a href="static/paper.pdf"
+              <span class="link-block">
+                <a href="static/2312.09243.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                   </span>
                   <span>Paper</span>
                 </a>
-              </span> -->
+              </span>
               <span class="link-block">
-                <a href="http://arxiv.org/abs/TODO"
+                <a href="https://arxiv.org/abs/2312.09243"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
-                  <span>Paper</span>
+                  <span>arXiv</span>
                 </a>
               </span>
               <span class="link-block">
@@ -114,6 +115,47 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 align="center"  class="title is-2">Demo</h2>
+
+        <h3 align="center" class="title is-4">Depth Estimation </h3>
+        <div class="content has-text-justified">
+        </div>
+        <div class="content has-text-centered">
+          <video poster='static/images/occnerf-demo-0.png'
+                 id="replay-video"
+                 controls
+                 muted
+                 width="50%">
+            <source src="static/videos/occnerf-demo.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+
+        <h3 align="center" class="title is-4">3D Occupancy Prediction </h3>
+        <div class="content has-text-justified">
+        </div>
+        <div class="content has-text-centered">
+          <video poster='static/images/occnerf-demo-sem-0.png'
+                 id="replay-video"
+                 controls
+                 muted
+                 width="50%">
+                 <source src="static/videos/occnerf-demo-sem.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+          
+        
       </div>
     </div>
   </div>
@@ -171,46 +213,61 @@
 
 <div align="center" style="margin-top:40px;" style="margin-bottom:80px;">
 <img style='height: auto; width:60%; object-fit: contain' src="static/images/pipeline.jpg" alt="overview_image">
-</div> 
+</div>
 
 
 <section class="section">
   <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 align="center"  class="title is-2">Visualization</h2>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds">
+        <h2 align="center"  class="title is-2">Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            We conducted self-supervised multi-camera depth estimation and 3D occupancy prediction on nuScenes dataset. Our method does not need any 3D supervision in both tasks.
+          </p>
+        </div>
 
-        <!-- Ours vs. LLFF -->
+
         <h3 align="center" class="title is-4">Depth Estimation </h3>
+
         <div class="content has-text-justified">
-        </div>
-        <div class="content has-text-centered">
-          <video poster='static/images/occnerf-demo-0.png'
-                 id="replay-video"
-                 controls
-                 muted
-                 width="60%">
-            <source src="static/videos/occnerf-demo.mp4"
-                    type="video/mp4">
-          </video>
+          The following table shows the self-supervised multi-camera depth estimation results on nuScenes dataset. 
+          We do not use pretrained segmentation model in this experiment. 
+          The results are averaged over 6 cameras and ‘FSM*’ is the reproduced FSM result reported in VFDepth. 
+          We can see that our method outperforms other state-of-the-art methods by a
+          large margin, demonstrating the effectiveness of OccNeRF.
         </div>
 
+        <img style='height: auto; width:100%; object-fit: contain' src="static/images/tab-de.png" alt="depth-estimation-results">
 
-        <h3 align="center" style="margin-top:80px;"  class="title is-4">Ours Finetuned vs. NeRF </h3>
         <div class="content has-text-justified">
+          The image below shows qualitative results on nuScenes dataset. Our method can predict visually appealing depth maps with texture details and fine-grained occupancy.
         </div>
-        <div class="content has-text-centered">
-          <video poster='static/images/occnerf-demo-sem-0.png'
-                 id="replay-video"
-                 controls
-                 muted
-                 width="60%">
-                 <source src="static/videos/occnerf-demo-sem.mp4"
-                    type="video/mp4">
-          </video>
+
+        <img style='height: auto; width:100%; object-fit: contain' src="static/images/fig-de.png" alt="depth-estimation-qual-results">
+
+
+        <div align="center" style="margin-top:40px;">
+        <h3 align="center" class="title is-4">3D Occpancy Prediction </h3>
+
+        <div class="content has-text-justified">
+          We also conduct semantic occupancy prediction experiments on the Occ3D-nuScenes dataset. 
+          Since the pretrained openvocabulary model cannot recognize ambiguous
+          prompts such as ‘other’ and ‘other flat’, we remove these
+          two classes during evaluation. For another self-supervised
+          method SimpleOcc, we use the same 2D semantic labels from the pretrained model for fair comparison. 
+          As shown in the following table, our method outperforms SimpleOcc and even gets comparable performance with
+          some full-supervised methods in some classes.
         </div>
-          
-        
+
+        <img style='height: auto; width:100%; object-fit: contain' src="static/images/tab-op.png" alt="occupancy-prediction-results">
+
+        <div class="content has-text-justified">
+          The image below shows qualitative results of semantic occupancy prediction from our model.
+        </div>
+
+        <img style='height: auto; width:100%; object-fit: contain' src="static/images/fig-op.png" alt="occupancy-prediction-qual-results">
+
       </div>
     </div>
   </div>
@@ -225,7 +282,7 @@
 @article{chubin2023occnerf, 
   title   = {OccNeRF: Self-Supervised Multi-Camera Occupancy Prediction with Neural Radiance Fields}, 
   author  = {Chubin Zhang and Juncheng Yan and Yi Wei and Jiaxin Li and Li Liu and Yansong Tang and Yueqi Duan and Jiwen Lu},
-  journal = {arXiv preprint arXiv:TODO},
+  journal = {arXiv preprint arXiv:2312.09243},
   year    = {2023}
 }
 </code></pre>
