@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="GeoLRM Homepage">
+  <meta name="keywords" content="GeoLRM, 3D, AIGC, LRM, large reconstruction model, sparse view reconstruction">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GeoLRM: Geometry-Aware Large Reconstruction Model for High-Quality 3D Gaussian Generation</title>
+ 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <!-- model viewer -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+  <style>
+    model-viewer {
+      width: 300px;
+      height: 300px;
+    }
+  </style>
+
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">GeoLRM: Geometry-Aware Large Reconstruction Model for High-Quality 3D Gaussian Generation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://LinShan-Bin.github.io">Chubin Zhang</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              Hongliang Song<sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://weiyithu.github.io/">Yi Wei</a><sup>1</sup>,</span>
+             <br>
+            <span class="author-block">
+              Yu Chen<sup>2</sup>,</span>
+            </span>
+            <span class="author-block">
+              <a href="http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/">Jiwen Lu</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://andytang15.github.io/">Yansong Tang</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div align="center" style="margin-bottom:20px;">
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Tsinghua University &nbsp;&nbsp;</span>
+            <span class="author-block"><sup>2</sup>Alibaba Group &nbsp;&nbsp;</span>
+          </div>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="static/GeoLRM_arXiv.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- arXiv Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/TODO"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/alibaba-yuanjing-aigclab/GeoLRM"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Demo Link. -->
+              <span class="link-block">
+                <a href="https://github.com/alibaba-yuanjing-aigclab/GeoLRM" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <svg class="svg-inline--fa fa-laptop fa-w-20" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="laptop" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" data-fa-i2svg=""><path fill="currentColor" d="M624 416H381.54c-.74 19.81-14.71 32-32.74 32H288c-18.69 0-33.02-17.47-32.77-32H16c-8.8 0-16 7.2-16 16v16c0 35.2 28.8 64 64 64h512c35.2 0 64-28.8 64-64v-16c0-8.8-7.2-16-16-16zM576 48c0-26.4-21.6-48-48-48H112C85.6 0 64 21.6 64 48v336h512V48zm-64 272H128V64h384v256z"></path></svg>
+                  </span>
+                  <span>Online Demo (Coming soon)</span>
+                  </a>
+              </span>
+              <!-- Weights. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/TODO" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <svg class="svg-inline--fa fa-database fa-w-14" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="database" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M448 73.143v45.714C448 159.143 347.667 192 224 192S0 159.143 0 118.857V73.143C0 32.857 100.333 0 224 0s224 32.857 224 73.143zM448 176v102.857C448 319.143 347.667 352 224 352S0 319.143 0 278.857V176c48.125 33.143 136.208 48.572 224 48.572S399.874 209.143 448 176zm0 160v102.857C448 479.143 347.667 512 224 512S0 479.143 0 438.857V336c48.125 33.143 136.208 48.572 224 48.572S399.874 369.143 448 336z"></path></svg>
+                  </span>
+                  <span>Weights</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container is-centered">
+      <div class="has-text-centered">
+        <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" width="80%">
+          <source src="static/videos/demo.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="columns is-centered ">
+        <div class="column is-four-fifths">
+          3D Gaussians generated by our GeoLRM method.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this work, we introduce the <b>Geometry-Aware Large Reconstruction Model (GeoLRM)</b>, 
+            an approach which can predict high-quality assets with 512k Gaussians and 21 input 
+            images in only 11 GB GPU memory. Previous works neglect <b>the inherent sparsity of 
+            3D structure</b> and do not utilize <b>explicit geometric relationships</b> between 3D and 2D images. 
+            This limits these methods to a low-resolution representation and makes it difficult 
+            to scale up to the dense views for better quality. GeoLRM tackles these issues by 
+            incorporating a novel transformer structure that directly processes 3D points 
+            and uses <b>cross-attention mechanisms</b> to effectively integrate image features 
+            into 3D representations. We implement this solution through a two-stage pipeline: 
+            initially, a lightweight proposal network generates a sparse set of <b>3D anchor points</b> 
+            from the posed image inputs; subsequently, a specialized reconstruction transformer 
+            refines the geometry and retrieves textural details. Extensive experimental results 
+            demonstrate that GeoLRM significantly outperforms existing models, especially for 
+            dense view inputs. We also demonstrate the practical applicability of our model 
+            with 3D generation tasks, showcasing its versatility and potential for broader adoption 
+            in real-world applications.
+          </p>
+        </div>
+
+        <br>
+          <img src="./static/images/overview.png" class="" alt="">
+
+        <div class="content has-text-justified">
+          <p>
+          GeoLRM generates high quality 3D Gaussians in a fead-forward manner. 
+          Notably, the output quality improves as the number of input views increases.
+          </p>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<hr>
+
+<!-- Method. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="has-text-centered">
+          <h2 class="title is-3">Method</h2>
+        </div>
+          <div class="has-text-justified" style="margin-top:20px;margin-bottom:20px;">
+            
+            The picture below is a brief summary of our method. 
+            The process begins with the transformation of dense tokens into an occupancy grid 
+            via a <b>Proposal Transformer</b>, which captures <b>spatial occupancy</b> from <b>hierarchical 
+            image features</b> extracted using a combination of a convolutional layer and DINOv2. 
+            Sparse tokens representing occupied voxels are further processed through a 
+            <b>Reconstruction Transformer</b> that employs <b>self-attention</b> and <b>deformable cross-attention</b> 
+            mechanisms to refine geometry and retrieve texture details with 3D to 2D projection. 
+            Finally, the refined 3D tokens are converted into 3D Gaussians for real-time rendering.
+          </div>
+          <img src="./static/images/pipeline.png" class="" alt="">
+        </div>
+    </div>
+  </div>
+</section>
+<!-- / Method. -->
+
+
+<hr>
+
+<!-- Compar. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="has-text-centered">
+          <h2 class="title is-3">Qualitative Comparison</h2>
+        </div>
+          <div class="has-text-justified" style="margin-top:20px;margin-bottom:20px;">
+            We conducted a qualitative analysis comparing our method with several LRM-based baselines, 
+            including TripoSR, LGM, CRM, and InstantMesh. The results are shown below. 
+            Our method generates accurate geometry and high-quality textures.
+          </div>
+          <img src="./static/images/comparison.png" class="" alt="">
+        </div>
+    </div>
+  </div>
+</section>
+<!-- / Compar. -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3"><center>Interactable Meshes</center></h2>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="columns is-1 is-multiline is-mobile">
+        <div class="column pb-6 is-one-third">
+          <model-viewer src="static/meshes/Input_1.glb" environment-image="neutral" shadow-intensity="1" orientation="0deg 0deg 0deg" style="background: linear-gradient(#ffffff, #d8e3e8); overflow-x: hidden;" camera-controls="" touch-action="pan-y" ar-status="not-presenting">
+          </model-viewer>
+        </div>
+        <div class="column pb-6 is-one-third"> 
+          <model-viewer src="static/meshes/Input_2.glb" environment-image="neutral" shadow-intensity="1" orientation="0deg 0deg 0deg" style="background: linear-gradient(#ffffff, #d8e3e8); overflow-x: hidden;" camera-controls="" touch-action="pan-y" ar-status="not-presenting">
+          </model-viewer>
+        </div>
+        <div class="column pb-6 is-one-third"> 
+          <model-viewer src="static/meshes/Input_3.glb" environment-image="neutral" shadow-intensity="1" orientation="0deg 0deg 0deg" style="background: linear-gradient(#ffffff, #d8e3e8); overflow-x: hidden;" camera-controls="" touch-action="pan-y" ar-status="not-presenting">
+          </model-viewer>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+    
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website template from <a
+            href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
