@@ -1,6 +1,5 @@
 main:
-
-  - title: GeoLRM: Geometry-aware Large Reconstruction Model for High-quality 3D Gaussian Generation
+  - title: "GeoLRM: Geometry-aware Large Reconstruction Model for High-quality 3D Gaussian Generation"
     authors: <strong>Chubin Zhang</strong>, Hongliang Song, Yi Wei, Chen Yu, Jiwen Lu, Yansong Tang* (*Corresponding authors)
     conference_short: NeurIPS
     conference: The Thirty-Ninth Annual Conference on Neural Information Processing Systems (NeurIPS 2024)
