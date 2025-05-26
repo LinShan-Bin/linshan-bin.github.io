@@ -1,13 +1,13 @@
 main:
   - title: "GeoLRM: Geometry-aware Large Reconstruction Model for High-quality 3D Gaussian Generation"
-    authors: <strong>Chubin Zhang</strong>, Hongliang Song, Yi Wei, Chen Yu, Jiwen Lu, Yansong Tang* (*Corresponding authors)
-    conference_short: NeurIPS
-    conference: The Thirty-Ninth Annual Conference on Neural Information Processing Systems (NeurIPS 2024)
-    arxiv: https://arxiv.org/abs/2406.15333
-    pdf: https://proceedings.neurips.cc/paper_files/paper/2024/file/6506964d22ede4d36adae956e6a9919a-Paper-Conference.pdf
-    page: https://lin-shan.com/GeoLRM/
-    code: https://github.com/alibaba-yuanjing-aigclab/GeoLRM
-    image: ./assets/img/teaser_geolrm.png
+   authors: <strong>Chubin Zhang</strong>, Hongliang Song, Yi Wei, Chen Yu, Jiwen Lu, Yansong Tang* (*Corresponding authors)
+   conference_short: NeurIPS
+   conference: The Thirty-Ninth Annual Conference on Neural Information Processing Systems (NeurIPS 2024)
+   arxiv: https://arxiv.org/abs/2406.15333
+   pdf: https://proceedings.neurips.cc/paper_files/paper/2024/file/6506964d22ede4d36adae956e6a9919a-Paper-Conference.pdf
+   page: https://lin-shan.com/GeoLRM/
+   code: https://github.com/alibaba-yuanjing-aigclab/GeoLRM
+   image: ./assets/img/teaser_geolrm.jpg
   - title: "OccNeRF: Advancing 3D Occupancy Prediction in Lidar-free Environments"
    authors: <strong>Chubin Zhang</strong>, Juncheng Yan, Yi Wei, Jiaxin Li, Li Liu, Yansong Tang*, Yueqi Duan, Jiwen Lu (*Corresponding authors)
    conference_short: TIP
