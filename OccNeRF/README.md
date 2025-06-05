@@ -5,11 +5,12 @@ Source code for the [OccNeRF website](https://linshan-bin.github.io/OccNeRF).
 If you find OccNeRF useful for your work please cite:
 
 ```bibtex
-@article{chubin2023occnerf, 
-  title   = {OccNeRF: Self-Supervised Multi-Camera Occupancy Prediction with Neural Radiance Fields}, 
-  author  = {Chubin Zhang and Juncheng Yan and Yi Wei and Jiaxin Li and Li Liu and Yansong Tang and Yueqi Duan and Jiwen Lu},
-  journal = {arXiv preprint arXiv:TODO},
-  year    = {2023}
+@article{zhang2025occnerf,
+  title={Occnerf: Advancing 3d occupancy prediction in lidar-free environments},
+  author={Zhang, Chubin and Yan, Juncheng and Wei, Yi and Li, Jiaxin and Liu, Li and Tang, Yansong and Duan, Yueqi and Lu, Jiwen},
+  journal={IEEE Transactions on Image Processing},
+  year={2025},
+  publisher={IEEE}
 }
 ```
 
