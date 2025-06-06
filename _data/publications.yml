@@ -1,4 +1,12 @@
 main:
+  - title: "VLA-RL: Towards Masterful and General Robotic Manipulation with Scalable Reinforcement Learning"
+    authors: Guanxing Lu, Wenkai Guo, <strong>Chubin Zhang</strong>, Yuheng Zhou, Haonan Jiang, Zifeng Gao, Yansong Tang, Ziwei Wang
+    conference_short: Preprint
+    conference: Preprint
+    arxiv: https://arxiv.org/abs/2505.18719
+    pdf: https://arxiv.org/pdf/2505.18719
+    code: https://github.com/GuanxingLu/vlarl
+    image: ./assets/img/teaser_vlarl.png
   - title: "GeoLRM: Geometry-aware Large Reconstruction Model for High-quality 3D Gaussian Generation"
     authors: <strong>Chubin Zhang</strong>, Hongliang Song, Yi Wei, Chen Yu, Jiwen Lu, Yansong Tang* (*Corresponding authors)
     conference_short: NeurIPS
