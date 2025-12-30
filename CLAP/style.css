@@ -888,6 +888,10 @@ body::before {
         padding: 1.5rem;
     }
     
+    .carousel-container {
+        gap: 0.5rem;
+    }
+    
     .carousel-btn {
         width: 40px;
         height: 40px;
@@ -896,6 +900,11 @@ body::before {
     .carousel-btn svg {
         width: 20px;
         height: 20px;
+    }
+    
+    .slide-caption {
+        padding: 1rem 1.25rem;
+        font-size: 0.9rem;
     }
     
     .result-number {
@@ -909,15 +918,31 @@ body::before {
 
 @media (max-width: 480px) {
     .carousel-container {
-        flex-direction: column;
+        position: relative;
     }
     
     .carousel-btn.prev,
     .carousel-btn.next {
         position: absolute;
-        top: 50%;
+        top: 35%;
         transform: translateY(-50%);
         z-index: 10;
+        width: 36px;
+        height: 36px;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .carousel-btn.prev:hover,
+    .carousel-btn.next:hover {
+        background: rgba(0, 0, 0, 0.7);
+    }
+    
+    .carousel-btn svg {
+        width: 18px;
+        height: 18px;
     }
     
     .carousel-btn.prev {
@@ -926,6 +951,26 @@ body::before {
     
     .carousel-btn.next {
         right: 0.5rem;
+    }
+    
+    .slide-caption {
+        padding: 1rem;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        min-height: auto;
+    }
+    
+    .model-tag {
+        display: block;
+        width: fit-content;
+        margin-bottom: 0.5rem;
+        margin-right: 0;
+    }
+    
+    .speedup-tag {
+        display: inline-block;
+        margin-left: 0;
+        margin-top: 0.5rem;
     }
 }
 
