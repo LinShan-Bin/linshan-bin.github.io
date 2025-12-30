@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
+    <title>👏🏻 CLAP: Contrastive Latent Action Pretraining</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="grain-overlay"></div>
+    
+    <main class="container">
+        <!-- Title Section -->
+        <header class="hero">
+            <div class="title-wrapper">
+                <h1 class="title">
+                    <span class="title-accent">👏🏻 CLAP</span>
+                    <span class="title-separator">:</span>
+                    Contrastive Latent Action Pretraining
+                </h1>
+                <p class="subtitle">Learning Vision-Language-Action Models from Human Videos</p>
+            </div>
+            <div class="title-line"></div>
+        </header>
+
+        <!-- Authors Section -->
+        <section class="authors">
+            <div class="author-list">
+                <a href="https://lin-shan.com/" class="author">Chubin Zhang<sup>1,2,*</sup></a>
+                <a href="https://scholar.google.com/citations?user=mt5mvZ8AAAAJ&hl=en" class="author">Jianan Wang<sup>2,*</sup></a>
+                <a href="https://gao-zifeng.github.io/" class="author">Zifeng Gao<sup>1</sup></a>
+                <a href="https://selen-suyue.github.io/" class="author">Yue Su<sup>2,3</sup></a>
+                <a href="#" class="author">Tianru Dai<sup>1</sup></a>
+                <a href="https://homepage.zhouc.ai/" class="author">Cai Zhou<sup>4</sup></a>
+                <a href="https://ivg.au.tsinghua.edu.cn/Jiwen_Lu/" class="author">Jiwen Lu<sup>1</sup></a>
+                <a href="https://andytang15.github.io/" class="author corresponding">Yansong Tang<sup>1</sup></a>
+            </div>
+            <div class="affiliations">
+                <span class="affiliation"><sup>1</sup>Tsinghua University</span>
+                <span class="affiliation"><sup>2</sup>Astribot</span>
+                <span class="affiliation"><sup>3</sup>University of Hong Kong</span>
+                <span class="affiliation"><sup>4</sup>MIT</span>
+            </div>
+            <div class="links">
+                <a href="#" class="link-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14,2 14,8 20,8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10,9 9,9 8,9"></polyline>
+                    </svg>
+                    Paper
+                </a>
+                <a href="#" class="link-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    Code
+                </a>
+                <!-- <a href="#" class="link-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7,10 12,15 17,10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Data
+                </a> -->
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="video-section">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/Yec3rgq2rLA?si=etm8ANJW52PBYHqe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </section>
+
+
+        <!-- TL;DR Section -->
+        <section class="tldr-section">
+            <h2 class="section-label">TL;DR</h2>
+            <p class="tldr-content">
+                <strong>CLAP</strong> aligns visual latent actions from human videos with proprioceptive latent actions from robot trajectories through contrastive learning, enabling effective skill transfer from abundant human demonstrations to robotic execution.
+            </p>
+        </section>
+
+        <!-- Abstract Section -->
+        <section class="abstract-section">
+            <h2 class="section-title">Abstract</h2>
+            <div class="abstract-content">
+                <p>
+                    Generalist Vision-Language-Action models are currently hindered by the scarcity of robotic data compared to the abundance of human video demonstrations. Existing Latent Action Models attempt to leverage video data but often suffer from <em>visual entanglement</em>, capturing noise rather than manipulation skills.
+                </p>
+                <p>
+                    To address this, we propose <strong>Contrastive Latent Action Pretraining (CLAP)</strong>, a framework that aligns the visual latent space from videos with a proprioceptive latent space from robot trajectories. By employing contrastive learning, CLAP maps video transitions onto a quantized, physically executable codebook. Building on this representation, we introduce a dual-formulation VLA framework offering both <strong>CLAP-NTP</strong>, an autoregressive model excelling at instruction following and object generalization, and <strong>CLAP-RF</strong>, a Rectified Flow-based policy designed for high-frequency, precise manipulation.
+                </p>
+                <p>
+                    Furthermore, we propose a <strong>Knowledge Matching (KM)</strong> regularization strategy to mitigate catastrophic forgetting during fine-tuning. Extensive experiments demonstrate that CLAP significantly outperforms strong baselines, enabling the effective transfer of skills from human videos to robotic execution.
+                </p>
+            </div>
+        </section>
+
+        <!-- Method Section -->
+        <section class="method-section">
+            <h2 class="section-title">Method</h2>
+            <div class="method-content">
+                <div class="method-diagram">
+                    <img src="assets/method.png" alt="CLAP Method Overview" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div class="diagram-placeholder" style="display: none;">Method Diagram</div>
+                </div>
+                <div class="method-description">
+                    <div class="method-block">
+                        <h3>Contrastive Latent Action Learning</h3>
+                        <p>Unlike conventional methods that rely solely on limited robot teleoperation data, CLAP learns an executable latent action space from large-scale human demonstrations. We align visual dynamics from videos with proprioceptive dynamics from robot trajectories through contrastive learning.</p>
+                    </div>
+                    <div class="method-block">
+                        <h3>Dual-Formulation VLA</h3>
+                        <p><strong>CLAP-NTP</strong> retains autoregressive architecture for strong reasoning and instruction-following. <strong>CLAP-RF</strong> uses Rectified Flow for high-frequency inference (183ms on RTX 3090) with exceptional precision.</p>
+                    </div>
+                    <div class="method-block">
+                        <h3>Knowledge Matching Regularization</h3>
+                        <p>Our KM strategy mitigates catastrophic forgetting during fine-tuning, preserving the semantic knowledge from pretraining while adapting to new tasks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Real World Experiments Section -->
+        <section class="experiments-section">
+            <h2 class="section-title">Real World Experiments</h2>
+            
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="changeSlide(-1)" aria-label="Previous slide">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15,18 9,12 15,6"></polyline>
+                    </svg>
+                </button>
+                
+                <div class="carousel-viewport">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide active">
+                            <div class="slide-content">
+                                <video autoplay loop muted playsinline controls>
+                                    <source src="assets/pnp_id_2x.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="slide-caption">
+                                <span class="model-tag ntp">CLAP-NTP</span>
+                                <strong>Pick and Place</strong> — Demonstrates strong <strong>instruction following</strong> capabilities with precise object manipulation. The autoregressive model preserves semantic reasoning from the VLM backbone. <span class="speedup-tag">2× speedup</span>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="slide-content">
+                                <video autoplay loop muted playsinline controls>
+                                    <source src="assets/make_bouquet_id_ood_2x.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="slide-caption">
+                                <span class="model-tag ntp">CLAP-NTP</span>
+                                <strong>Make Bouquet</strong> — Successfully transfers manipulation skills to <strong>novel objects</strong> by learning from <strong>human video</strong> demonstrations. This showcases CLAP's core capability: enabling object generalization through contrastive alignment. <span class="speedup-tag">2× speedup</span>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="slide-content">
+                                <video autoplay loop muted playsinline controls>
+                                    <source src="assets/fold_2x.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="slide-caption">
+                                <span class="model-tag rf">CLAP-RF</span>
+                                <strong>Cloth Folding</strong> — Demonstrates <strong>precise manipulation</strong> in delicate tasks requiring fine motor skills. The Rectified Flow-based policy enables <strong>high-frequency control</strong> essential for contact-rich manipulation. <span class="speedup-tag">2× speedup</span>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="slide-content">
+                                <video autoplay loop muted playsinline controls>
+                                    <source src="assets/doll_id_ood_2x.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="slide-caption">
+                                <span class="model-tag rf">CLAP-RF</span>
+                                <strong>Gift Packing</strong> — Complex multi-step manipulation showcasing <strong>dexterous bimanual control</strong>. CLAP-RF outperforms strong baselines like π₀ and π₀.₅ in tasks requiring exceptional precision. Generalizes directly to <strong>novel objects</strong>. <span class="speedup-tag">2× speedup</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-btn next" onclick="changeSlide(1)" aria-label="Next slide">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9,18 15,12 9,6"></polyline>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="carousel-dots">
+                <button class="dot active" onclick="goToSlide(0)" aria-label="Go to slide 1"></button>
+                <button class="dot" onclick="goToSlide(1)" aria-label="Go to slide 2"></button>
+                <button class="dot" onclick="goToSlide(2)" aria-label="Go to slide 3"></button>
+                <button class="dot" onclick="goToSlide(3)" aria-label="Go to slide 4"></button>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section">
+            <h2 class="section-title">Key Results</h2>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-number">87.5%</div>
+                    <div class="result-label">Avg. Success Rate</div>
+                    <div class="result-desc">on LIBERO benchmark</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">183ms</div>
+                    <div class="result-label">Inference Latency</div>
+                    <div class="result-desc">CLAP-RF on RTX 3090</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">3</div>
+                    <div class="result-label">Robot Platforms</div>
+                    <div class="result-desc">Astribot, AgiBot, Franka</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Citation Section -->
+        <section class="citation-section">
+            <h2 class="section-title">Citation</h2>
+            <div class="citation-block">
+                <pre><code>@article{zhang2025clap,
+  title={CLAP: Contrastive Latent Action Pretraining for 
+         Learning Vision-Language-Action Models from Human Videos},
+  author={Zhang, Chubin and Gao, Zifeng and Su, Yue and Dai, Tianru 
+          and Zhou, Cai and Lu, Jiwen and Wang, Jianan and Tang, Yansong},
+  journal={arXiv preprint arXiv:},
+  year={2025}
+}</code></pre>
+                <button class="copy-btn" onclick="copyBibtex()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    Copy
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2025 CLAP Authors. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 4;
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            const track = document.getElementById('carouselTrack');
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update dots
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+            
+            // Update slides and handle video playback
+            document.querySelectorAll('.carousel-slide').forEach((slide, index) => {
+                const isActive = index === currentSlide;
+                slide.classList.toggle('active', isActive);
+                
+                // Handle video playback
+                const video = slide.querySelector('video');
+                if (video) {
+                    if (isActive) {
+                        video.currentTime = 0;
+                        video.play().catch(() => {});
+                    } else {
+                        video.pause();
+                    }
+                }
+            });
+        }
+
+        function copyBibtex() {
+            const bibtex = `@article{zhang2025clap,
+  title={CLAP: Contrastive Latent Action Pretraining for Learning Vision-Language-Action Models from Human Videos},
+  author={Zhang, Chubin and Gao, Zifeng and Su, Yue and Dai, Tianru and Zhou, Cai and Lu, Jiwen and Wang, Jianan and Tang, Yansong},
+  journal={arXiv preprint arXiv:},
+  year={2025}
+}`;
+            navigator.clipboard.writeText(bibtex).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg> Copied!`;
+                setTimeout(() => {
+                    btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy`;
+                }, 2000);
+            });
+        }
+
+        // Initialize videos on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Pause all videos except the first one
+            document.querySelectorAll('.carousel-slide').forEach((slide, index) => {
+                const video = slide.querySelector('video');
+                if (video) {
+                    if (index === 0) {
+                        video.play().catch(() => {});
+                    } else {
+                        video.pause();
+                    }
+                }
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+
+        // Auto-advance carousel with hover pause functionality
+        const carouselContainer = document.querySelector('.carousel-container');
+        let autoAdvanceInterval = setInterval(() => changeSlide(1), 8000);
+        
+        function startAutoAdvance() {
+            if (!autoAdvanceInterval) {
+                autoAdvanceInterval = setInterval(() => changeSlide(1), 8000);
+            }
+        }
+        
+        function stopAutoAdvance() {
+            if (autoAdvanceInterval) {
+                clearInterval(autoAdvanceInterval);
+                autoAdvanceInterval = null;
+            }
+        }
+        
+        carouselContainer.addEventListener('mouseenter', stopAutoAdvance);
+        carouselContainer.addEventListener('mouseleave', startAutoAdvance);
+    </script>
+</body>
+</html>
+
