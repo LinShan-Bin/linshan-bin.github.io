@@ -219,7 +219,7 @@ body::before {
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.5rem 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.75rem;
 }
 
 .affiliation {
@@ -230,6 +230,27 @@ body::before {
 .affiliation sup {
     color: var(--accent-primary);
     font-size: 0.75em;
+}
+
+.author-notes {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    opacity: 0.8;
+}
+
+.author-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.author-note sup {
+    color: var(--accent-primary);
+    font-size: 0.9em;
 }
 
 .links {
