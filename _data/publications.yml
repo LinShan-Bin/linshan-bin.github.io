@@ -1,5 +1,5 @@
 main:
-  - title: "VLA-RL: Towards Masterful and General Robotic Manipulation with Scalable Reinforcement Learning"
+  - title: "CLAP: Contrastive Latent Action Pretraining for Learning Vision-Language-Action Models from Human Videos"
     authors: <strong>Chubin Zhang</strong>, Jianan Wang, Zifeng Gao, Yue Su, Tianru Dai, Cai Zhou, Jiwen Lu, Yansong Tang
     conference_short: Preprint
     conference: Preprint
