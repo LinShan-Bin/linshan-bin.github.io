@@ -6,6 +6,7 @@ main:
     arxiv: https://arxiv.org/abs/2601.04061
     pdf: https://arxiv.org/pdf/2601.04061
     page: https://lin-shan.com/CLAP/
+    code: https://github.com/LinShan-Bin/OpenCLAP
     image: ./assets/img/teaser_CLAP.png
   - title: "VLA-RL: Towards Masterful and General Robotic Manipulation with Scalable Reinforcement Learning"
     authors: Guanxing Lu, Wenkai Guo, <strong>Chubin Zhang</strong>, Yuheng Zhou, Haonan Jiang, Zifeng Gao, Yansong Tang, Ziwei Wang
