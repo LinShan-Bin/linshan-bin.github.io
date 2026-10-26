@@ -301,12 +301,7 @@
         }
 
         function copyBibtex() {
-            const bibtex = `@article{zhang2026clap,
-  title={CLAP: Contrastive Latent Action Pretraining for Learning Vision-Language-Action Models from Human Videos},
-  author={Zhang, Chubin and Wang, Jianan and Gao, Zifeng and Su, Yue and Dai, Tianru and Zhou, Cai and Lu, Jiwen and Tang, Yansong},
-  journal={arXiv preprint arXiv:2601.04061},
-  year={2025}
-}`;
+            const bibtex = document.querySelector('.citation-block code').textContent.trim();
             navigator.clipboard.writeText(bibtex).then(() => {
                 const btn = document.querySelector('.copy-btn');
                 btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg> Copied!`;
