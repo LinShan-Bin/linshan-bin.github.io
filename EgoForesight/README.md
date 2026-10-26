@@ -23,6 +23,12 @@ Open `http://127.0.0.1:8765/EgoForesight/`. The page can also be opened directly
 - Scaling measurements follow `figures/scaling_data.json`; benchmark averages follow `tables/robocasa_results.tex`. The matched scaling baseline and the published DIAL comparison are described separately.
 - The three displayed real-world success rates follow `figures/real_world_scores.tex`, with 20 evaluation trials and 100 post-training demonstrations per task. No three-task average is substituted for the paper's full evaluation.
 
+## Static asset cache versions
+
+`index.html` includes a `?v=` query parameter on the CSS and JavaScript URLs, using the first 12 characters of each file's SHA-256 hash. This gives updated assets a new browser-cache key instead of allowing new HTML to reuse an older stylesheet or script. Cloudflare must include query strings in its cache key for this to also distinguish edge-cache entries; the versioned URLs were checked against the current site.
+
+Whenever `style.css` or `app.js` changes, update its matching `?v=` value before publishing. Compute the values from this directory with `shasum -a 256 style.css app.js`. This does not disable caching or require re-uploading the film. Purging Cloudflare alone does not clear files already cached in visitors' browsers.
+
 ## Featured film
 
 The page opens with a viewport-height film section before the project navigation and hero. It uses `assets/videos/EgoForesight_promo_v2.mp4`, copied without re-encoding from the supplied promotional film. It is approximately 2:59 long, 1920×1080 at 24 fps, with H.264 video, AAC narration/music, and embedded English subtitles. `assets/posters/egoforesight-film.jpg` is a frame from the film.
