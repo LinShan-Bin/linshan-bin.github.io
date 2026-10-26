@@ -79,4 +79,211 @@ blockquote { background: var(--global-bg-color); border-left: 2px solid var(--gl
 
 .publications ol.bibliography li div.abstract.hidden.open { border-color: var(--global-text-color); }
 
-.publications ol.bibliography li .teaser { border-radius: 8px; box-shadow: 3px 3px 6px #888; height: 123px; width: 270px; margin-top: 5px; margin-left: 5px; margin-bottom: 5px; object-fit: cover; }
+.publications ol.bibliography li .teaser {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 8 / 5;
+  margin: 0;
+  padding: 6px;
+  border: 1px solid var(--publication-border);
+  border-radius: 5px;
+  background: #fff;
+  object-fit: contain;
+}
+
+/* Publication controls and method-diagram layout. */
+.publications {
+  --publication-border: #d7e1e8;
+  --publication-muted: #596570;
+  --publication-soft: #f2f6f9;
+  margin-top: 2rem;
+}
+
+.publications .publications-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.publications .publications-heading h2 {
+  margin: 0;
+}
+
+.publications .publication-filters {
+  display: inline-flex;
+  gap: 3px;
+  padding: 3px;
+  border: 1px solid var(--publication-border);
+  border-radius: 7px;
+  background: var(--publication-soft);
+}
+
+.publications .publication-filters[hidden],
+.publications .publication-entry[hidden] {
+  display: none;
+}
+
+.publications .publication-filters button {
+  appearance: none;
+  border: 0;
+  border-radius: 4px;
+  padding: 0.35rem 0.8rem;
+  background: transparent;
+  color: var(--publication-muted);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.publications .publication-filters button[aria-pressed="true"] {
+  background: var(--global-theme-color);
+  color: #fff;
+}
+
+.publications .publication-filters button:hover {
+  box-shadow: inset 0 0 0 1px var(--global-theme-color);
+}
+
+.publications button:focus-visible,
+.publications a:focus-visible {
+  outline: 2px solid var(--global-theme-color);
+  outline-offset: 3px;
+}
+
+.publications .publication-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.publications ol.bibliography .publication-entry {
+  min-height: 0;
+  margin: 0 0 2rem;
+}
+
+.publications .pub-row {
+  display: grid;
+  grid-template-columns: minmax(0, 230px) minmax(0, 1fr);
+  align-items: start;
+  gap: 1.25rem;
+}
+
+.publications .publication-image > a {
+  display: block;
+}
+
+.publications .publication-badge {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.2em 0.6em;
+  border-radius: 3px;
+  background: var(--publication-soft);
+  color: var(--global-theme-color);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.publications .publication-details {
+  min-width: 0;
+  line-height: 1.5;
+}
+
+.publications .title {
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+
+.publications .author,
+.publications .periodical {
+  font-size: 0.9rem;
+}
+
+.publications .periodical {
+  margin-top: 0.2rem;
+}
+
+.publications .publication-tldr {
+  margin: 0.6rem 0 0;
+  padding-left: 0.65rem;
+  border-left: 2px solid var(--publication-border);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.publications .publication-tldr strong {
+  color: var(--global-theme-color);
+  font-size: 0.8rem;
+}
+
+.publications .links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+}
+
+.publications ol.bibliography li .links a.btn {
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.publications .publication-note {
+  color: #c93e2f;
+  font-size: 0.85rem;
+}
+
+@media screen and (max-width: 600px) {
+  .publications .pub-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.8rem;
+  }
+
+  .publications .publication-image {
+    max-width: 420px;
+    width: 100%;
+  }
+}
+
+@media print {
+  .publications .publication-filters {
+    display: none;
+  }
+
+  .publications .publication-entry {
+    break-inside: avoid;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .publications {
+    --publication-border: #42525d;
+    --publication-muted: #becbd4;
+    --publication-soft: #25313a;
+  }
+
+  .publications .publication-filters button[aria-pressed="true"] {
+    background: #3eb7f0;
+    color: #10232d;
+  }
+
+  .publications .publication-note {
+    color: #ff9386;
+  }
+}

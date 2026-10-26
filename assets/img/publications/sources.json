@@ -1,0 +1,140 @@
+{
+  "verified_on": "2026-10-26",
+  "note": "Original method or architecture figures from the papers or their official project pages. Images are resized proportionally and converted to WebP without cropping.",
+  "papers": [
+    {
+      "id": "egoforesight",
+      "paper": "EgoForesight: Effectively Scaling Policy Learning with Noisy Egocentric Actions",
+      "paper_url": "https://arxiv.org/abs/2610.31845",
+      "image": "egoforesight-method.webp",
+      "source_url": "https://lin-shan.com/EgoForesight/assets/figures/method.webp",
+      "source_local": "EgoForesight/assets/figures/method.webp",
+      "figure": "Full architecture from the paper, linked from the official project's method section",
+      "tldr": "Scales robot policy learning with noisy egocentric actions by accounting for label reliability and distilling action-relevant knowledge from demonstrated future outcomes.",
+      "tldr_source": "https://arxiv.org/abs/2610.31845"
+    },
+    {
+      "id": "clap",
+      "paper": "CLAP: Contrastive Latent Action Pretraining for Learning Vision-Language-Action Models from Human Videos",
+      "paper_url": "https://arxiv.org/abs/2601.04061",
+      "image": "clap-method.webp",
+      "source_url": "https://lin-shan.com/CLAP/assets/method.png",
+      "source_local": "CLAP/assets/method.png",
+      "figure": "CLAP method overview from the official project page",
+      "tldr": "Transfers manipulation skills from human videos to robots by contrastively aligning visual transitions with an executable latent action vocabulary.",
+      "tldr_source": "https://arxiv.org/abs/2601.04061"
+    },
+    {
+      "id": "vla-rl",
+      "paper": "VLA-RL: Towards Masterful and General Robotic Manipulation with Scalable Reinforcement Learning",
+      "paper_url": "https://arxiv.org/abs/2505.18719",
+      "image": "vla-rl-method.webp",
+      "source_url": "https://arxiv.org/html/2505.18719v1/pipeline.png",
+      "figure": "Figure 2: The overall pipeline of VLA-RL",
+      "tldr": "Improves pretrained vision-language-action models through scalable online reinforcement learning, using a robotic process reward model to guide exploration.",
+      "tldr_source": "https://arxiv.org/abs/2505.18719"
+    },
+    {
+      "id": "onewm",
+      "paper": "Can World and Action Modeling Benefit Each Other under Unified Causal Training?",
+      "paper_url": "https://arxiv.org/abs/2610.21095",
+      "image": "onewm-method.webp",
+      "source_url": "https://arxiv.org/html/2610.21095v1/onewm-method-pipeline.png",
+      "figure": "Figure 1: Overview of OneWM",
+      "tldr": "Unifies world prediction and action generation in one causal model, showing that learning to predict action outcomes and learning to act improve each other.",
+      "tldr_source": "https://arxiv.org/abs/2610.21095"
+    },
+    {
+      "id": "ccdd",
+      "paper": "Coevolutionary Continuous Discrete Diffusion: Make Your Diffusion Language Model a Latent Reasoner",
+      "paper_url": "https://arxiv.org/abs/2510.03206",
+      "image": "ccdd-method.webp",
+      "source_url": "https://arxiv.org/html/2510.03206v2/Framework.png",
+      "figure": "Figure 3: Framework of Coevolutionary Continuous Discrete Diffusion",
+      "tldr": "Jointly denoises continuous representations and discrete tokens to combine expressive latent reasoning with effective language-model training and generation.",
+      "tldr_source": "https://arxiv.org/abs/2510.03206"
+    },
+    {
+      "id": "thinking-with-videos",
+      "paper": "Thinking With Videos: Multimodal Tool-Augmented Reinforcement Learning for Long Video Reasoning",
+      "paper_url": "https://arxiv.org/abs/2508.04416",
+      "image": "thinking-with-videos-method.webp",
+      "source_url": "https://zhang9302002.github.io/thinkingwithvideos-page/static/images/framework.png",
+      "figure": "Overview of the VITAL framework from the official project page's Architecture section",
+      "tldr": "Teaches video models to retrieve relevant frames while reasoning, using tool-augmented reinforcement learning for long-video question answering and temporal grounding.",
+      "tldr_source": "https://arxiv.org/abs/2508.04416"
+    },
+    {
+      "id": "occnerf",
+      "paper": "OccNeRF: Advancing 3D Occupancy Prediction in LiDAR-Free Environments",
+      "paper_url": "https://arxiv.org/abs/2312.09243",
+      "image": "occnerf-method.webp",
+      "source_url": "https://lin-shan.com/OccNeRF/static/images/pipeline.jpg",
+      "source_local": "OccNeRF/static/images/pipeline.jpg",
+      "figure": "Method pipeline from the official project page",
+      "tldr": "Learns semantic 3D occupancy from multi-camera images without LiDAR or 3D supervision, combining neural rendering, photometric consistency, and 2D semantic cues.",
+      "tldr_source": "https://arxiv.org/abs/2312.09243"
+    },
+    {
+      "id": "skillmemo",
+      "paper": "SkillMemo: Expert-guided Skill Memory Framework for Compositional Embodied Manipulation",
+      "paper_url": "https://arxiv.org/abs/2608.05970",
+      "image": "skillmemo-method.webp",
+      "source_url": "https://arxiv.org/html/2608.05970v1/figures/Pipeline.png",
+      "figure": "Figure 2: Overview of the SkillMemo framework",
+      "tldr": "Improves compositional manipulation by decomposing demonstrations into reusable latent skills and retrieving relevant skill memories to guide action prediction.",
+      "tldr_source": "https://arxiv.org/abs/2608.05970"
+    },
+    {
+      "id": "safe-pruner",
+      "paper": "SAFE-Pruner: Semantic Attention-Guided Future-Aware Token Pruning for Efficient Vision-Language-Action Manipulation",
+      "paper_url": "https://arxiv.org/abs/2605.29662",
+      "image": "safe-pruner-method.webp",
+      "source_url": "https://arxiv.org/html/2605.29662v1/pipeline_v7.png",
+      "figure": "Figure 4: The overall framework of SAFE-Pruner",
+      "tldr": "Accelerates vision-language-action inference by forecasting deep-layer token importance, preserving task-critical visual information while pruning redundant tokens.",
+      "tldr_source": "https://arxiv.org/abs/2605.29662"
+    },
+    {
+      "id": "stablevla",
+      "paper": "StableVLA: Towards Robust Vision-Language-Action Models without Extra Data",
+      "paper_url": "https://arxiv.org/abs/2605.18287",
+      "image": "stablevla-method.webp",
+      "source_url": "https://dagroup-pku.github.io/StableVLA/static/images/figures/main_arch.png",
+      "figure": "Architecture of IB-Adapter and StableVLA from the official project page",
+      "tldr": "Improves robustness to unseen visual disturbances with a lightweight information bottleneck adapter that filters visual noise without extra data or augmentation.",
+      "tldr_source": "https://arxiv.org/abs/2605.18287"
+    },
+    {
+      "id": "dspv2",
+      "paper": "DSPv2: Improved Dense Policy for Effective and Generalizable Whole-body Mobile Manipulation",
+      "paper_url": "https://arxiv.org/abs/2509.16063",
+      "image": "dspv2-method.webp",
+      "source_url": "https://selen-suyue.github.io/DSPv2Net/img/pipeline.png",
+      "figure": "DSPv2 method pipeline from the official project page",
+      "tldr": "Combines multi-view semantic features with 3D spatial perception and a dense action head to improve generalization and generate coherent whole-body manipulation.",
+      "tldr_source": "https://arxiv.org/abs/2509.16063"
+    },
+    {
+      "id": "geolrm",
+      "paper": "GeoLRM: Geometry-Aware Large Reconstruction Model for High-Quality 3D Gaussian Generation",
+      "paper_url": "https://arxiv.org/abs/2406.15333",
+      "image": "geolrm-method.webp",
+      "source_url": "https://lin-shan.com/GeoLRM/static/images/pipeline.png",
+      "figure": "Method pipeline from the official GeoLRM project page",
+      "source_local": "GeoLRM/static/images/pipeline.png",
+      "tldr": "Reconstructs detailed 3D Gaussian assets from multiple images using sparse 3D anchor points and geometry-aware attention, enabling efficient reconstruction with dense input views.",
+      "tldr_source": "https://arxiv.org/abs/2406.15333"
+    },
+    {
+      "id": "semantic-ray",
+      "paper": "Semantic Ray: Learning a Generalizable Semantic Field with Cross-Reprojection Attention",
+      "paper_url": "https://arxiv.org/abs/2303.13014",
+      "image": "semantic-ray-method.webp",
+      "source_url": "https://liuff19.github.io/S-Ray/img/pipeline.png",
+      "figure": "Semantic Ray method pipeline from the official project page",
+      "tldr": "Learns generalizable semantic fields by aggregating context across reprojected image rays, using efficient attention to transfer semantic understanding to previously unseen scenes.",
+      "tldr_source": "https://arxiv.org/abs/2303.13014"
+    }
+  ]
+}

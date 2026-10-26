@@ -1,44 +1,172 @@
+# All view: newest publication year first, then newest arXiv submission.
+# Selected view: curated independently by selected_order.
 main:
-  - title: "CLAP: Contrastive Latent Action Pretraining for Learning Vision-Language-Action Models from Human Videos"
-    authors: <strong>Chubin Zhang</strong>, Jianan Wang, Zifeng Gao, Yue Su, Tianru Dai, Cai Zhou, Jiwen Lu, Yansong Tang
-    conference_short: Preprint
-    conference: Preprint
-    arxiv: https://arxiv.org/abs/2601.04061
-    pdf: https://arxiv.org/pdf/2601.04061
-    page: https://lin-shan.com/CLAP/
-    code: https://github.com/LinShan-Bin/OpenCLAP
-    image: ./assets/img/teaser_CLAP.png
-  - title: "VLA-RL: Towards Masterful and General Robotic Manipulation with Scalable Reinforcement Learning"
-    authors: Guanxing Lu, Wenkai Guo, <strong>Chubin Zhang</strong>, Yuheng Zhou, Haonan Jiang, Zifeng Gao, Yansong Tang, Ziwei Wang
-    conference_short: Preprint
-    conference: Preprint
-    arxiv: https://arxiv.org/abs/2505.18719
-    pdf: https://arxiv.org/pdf/2505.18719
-    code: https://github.com/GuanxingLu/vlarl
-    image: ./assets/img/teaser_vlarl.png
-  - title: "GeoLRM: Geometry-aware Large Reconstruction Model for High-quality 3D Gaussian Generation"
-    authors: <strong>Chubin Zhang</strong>, Hongliang Song, Yi Wei, Chen Yu, Jiwen Lu, Yansong Tang* (*Corresponding authors)
-    conference_short: NeurIPS
-    conference: The Thirty-Ninth Annual Conference on Neural Information Processing Systems (NeurIPS 2024)
-    arxiv: https://arxiv.org/abs/2406.15333
-    pdf: https://proceedings.neurips.cc/paper_files/paper/2024/file/6506964d22ede4d36adae956e6a9919a-Paper-Conference.pdf
-    page: https://lin-shan.com/GeoLRM/
-    code: https://github.com/alibaba-yuanjing-aigclab/GeoLRM
-    image: ./assets/img/teaser_geolrm.png
-  - title: "OccNeRF: Advancing 3D Occupancy Prediction in Lidar-free Environments"
-    authors: <strong>Chubin Zhang</strong>, Juncheng Yan, Yi Wei, Jiaxin Li, Li Liu, Yansong Tang*, Yueqi Duan, Jiwen Lu (*Corresponding authors)
-    conference_short: TIP
-    conference: IEEE Transactions on Image Processing (TIP)
-    arxiv: https://arxiv.org/abs/2312.09243
-    pdf: https://ieeexplore.ieee.org/abstract/document/11003427
-    page: https://lin-shan.com/OccNeRF/
-    code: https://github.com/LinShan-Bin/OccNeRF
-    image: ./assets/img/teaser_occnerf.png
-  - title: "Semantic Ray: Learning a Generalizable Semantic Field with Cross-Reprojection Attention"
-    authors: Fangfu Liu, <strong>Chubin Zhang</strong>, Yu Zheng, Yueqi Duan
-    conference_short: CVPR
-    conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) 2023
-    arxiv: https://arxiv.org/abs/2303.13014
-    page: https://liuff19.github.io/S-Ray/
-    code: https://github.com/liuff19/Semantic-Ray
-    image: ./assets/img/teaser_sray.png
+  - id: "egoforesight"
+    title: "EgoForesight: Effectively Scaling Policy Learning with Noisy Egocentric Actions"
+    authors: "<strong>Chubin Zhang</strong>, Changyuan Wang, Yirui Wang, Ao Li, Shilin Ma, Yue Su, Cai Zhou, Xiuwei Xu, Tianle Zhang, Yansong Tang"
+    year: 2026
+    conference_short: "Preprint"
+    conference: "arXiv preprint, 2026"
+    arxiv: "https://arxiv.org/abs/2610.31845"
+    pdf: "https://arxiv.org/pdf/2610.31845"
+    page: "https://lin-shan.com/EgoForesight/"
+    code: "https://github.com/LinShan-Bin/EgoForesight"
+    image: "./assets/img/publications/egoforesight-method.webp"
+    selected_order: 1
+    tldr: "Scales robot policy learning with noisy egocentric actions by accounting for label reliability and distilling action-relevant knowledge from demonstrated future outcomes."
+
+  - id: "onewm"
+    title: "Can World and Action Modeling Benefit Each Other under Unified Causal Training?"
+    authors: "Yue Su, Bokai Lin, Xinkai Wang, <strong>Chubin Zhang</strong>, Xiangnan Wu, Kuan Zhang, Weiyang Jin, Jiwen Yu, Yiming Li, Cewu Lu, Lixin Yang, Xihui Liu"
+    year: 2026
+    conference_short: "Preprint"
+    conference: "arXiv preprint, 2026"
+    arxiv: "https://arxiv.org/abs/2610.21095"
+    pdf: "https://arxiv.org/pdf/2610.21095"
+    page: "https://selen-suyue.github.io/OneWMNet/"
+    code: "https://github.com/Interactive-Active-AI/OneWM"
+    image: "./assets/img/publications/onewm-method.webp"
+    selected_order: 4
+    tldr: "Unifies world prediction and action generation in one causal model, showing that learning to predict action outcomes and learning to act improve each other."
+
+  - id: "skillmemo"
+    title: "SkillMemo: Expert-guided Skill Memory Framework for Compositional Embodied Manipulation"
+    authors: "Changyuan Wang, <strong>Chubin Zhang</strong>, Zhenyu Wu, Runhao Li, Angyuan Ma, Ke Chao, Yinan Liang, Xiuwei Xu, Ziwei Wang, Yansong Tang, Jiwen Lu"
+    year: 2026
+    conference_short: "Preprint"
+    conference: "arXiv preprint, 2026"
+    arxiv: "https://arxiv.org/abs/2608.05970"
+    pdf: "https://arxiv.org/pdf/2608.05970"
+    image: "./assets/img/publications/skillmemo-method.webp"
+    tldr: "Improves compositional manipulation by decomposing demonstrations into reusable latent skills and retrieving relevant skill memories to guide action prediction."
+
+  - id: "safe-pruner"
+    title: "SAFE-Pruner: Semantic Attention-Guided Future-Aware Token Pruning for Efficient Vision-Language-Action Manipulation"
+    authors: "Shilin Ma, <strong>Chubin Zhang</strong>, Changyuan Wang, Yuji Wang, Yue Wu, Zixuan Wang, Jingqi Tian, Zheng Zhu, Yansong Tang"
+    year: 2026
+    conference_short: "ECCV"
+    conference: "European Conference on Computer Vision (ECCV), 2026"
+    arxiv: "https://arxiv.org/abs/2605.29662"
+    pdf: "https://arxiv.org/pdf/2605.29662"
+    image: "./assets/img/publications/safe-pruner-method.webp"
+    tldr: "Accelerates vision-language-action inference by forecasting deep-layer token importance, preserving task-critical visual information while pruning redundant tokens."
+
+  - id: "stablevla"
+    title: "StableVLA: Towards Robust Vision-Language-Action Models without Extra Data"
+    authors: "Yiyang Fu, <strong>Chubin Zhang</strong>, Shukai Gong, Yufan Deng, Kaiwei Sun, Qiyang Min, Qibin Hou, Yansong Tang, Jianan Wang, Daquan Zhou"
+    year: 2026
+    conference_short: "ICML"
+    conference: "International Conference on Machine Learning (ICML), 2026"
+    arxiv: "https://arxiv.org/abs/2605.18287"
+    pdf: "https://arxiv.org/pdf/2605.18287"
+    page: "https://dagroup-pku.github.io/StableVLA/"
+    code: "https://github.com/DAGroup-PKU/HumanNet/tree/main/src/model/StableVLA"
+    image: "./assets/img/publications/stablevla-method.webp"
+    tldr: "Improves robustness to unseen visual disturbances with a lightweight information bottleneck adapter that filters visual noise without extra data or augmentation."
+
+  - id: "clap"
+    title: "CLAP: Contrastive Latent Action Pretraining for Learning Vision-Language-Action Models from Human Videos"
+    authors: "<strong>Chubin Zhang</strong>, Jianan Wang, Zifeng Gao, Yue Su, Tianru Dai, Cai Zhou, Jiwen Lu, Yansong Tang"
+    year: 2026
+    conference_short: "Preprint"
+    conference: "arXiv preprint, 2026"
+    arxiv: "https://arxiv.org/abs/2601.04061"
+    pdf: "https://arxiv.org/pdf/2601.04061"
+    page: "https://lin-shan.com/CLAP/"
+    code: "https://github.com/LinShan-Bin/OpenCLAP"
+    image: "./assets/img/publications/clap-method.webp"
+    selected_order: 2
+    tldr: "Transfers manipulation skills from human videos to robots by contrastively aligning visual transitions with an executable latent action vocabulary."
+
+  - id: "ccdd"
+    title: "Coevolutionary Continuous Discrete Diffusion: Make Your Diffusion Language Model a Latent Reasoner"
+    authors: "Cai Zhou, Chenxiao Yang, Yi Hu, Chenyu Wang, <strong>Chubin Zhang</strong>, Muhan Zhang, Lester Mackey, Tommi Jaakkola, Stephen Bates, Dinghuai Zhang"
+    year: 2026
+    conference_short: "ICML"
+    conference: "International Conference on Machine Learning (ICML), 2026"
+    arxiv: "https://arxiv.org/abs/2510.03206"
+    pdf: "https://arxiv.org/pdf/2510.03206"
+    code: "https://github.com/zhouc20/CCDD"
+    image: "./assets/img/publications/ccdd-method.webp"
+    selected_order: 5
+    tldr: "Jointly denoises continuous representations and discrete tokens to combine expressive latent reasoning with effective language-model training and generation."
+
+  - id: "dspv2"
+    title: "DSPv2: Improved Dense Policy for Effective and Generalizable Whole-body Mobile Manipulation"
+    authors: "Yue Su, <strong>Chubin Zhang</strong>, Sijin Chen, Liufan Tan, Yansong Tang, Jianan Wang, Xihui Liu"
+    year: 2026
+    conference_short: "ICRA"
+    conference: "IEEE International Conference on Robotics and Automation (ICRA), 2026"
+    arxiv: "https://arxiv.org/abs/2509.16063"
+    pdf: "https://arxiv.org/pdf/2509.16063"
+    page: "https://selen-suyue.github.io/DSPv2Net/"
+    code: "https://github.com/Selen-Suyue/DSPv2"
+    image: "./assets/img/publications/dspv2-method.webp"
+    tldr: "Combines multi-view semantic features with 3D spatial perception and a dense action head to improve generalization and generate coherent whole-body manipulation."
+
+  - id: "thinking-with-videos"
+    title: "Thinking With Videos: Multimodal Tool-Augmented Reinforcement Learning for Long Video Reasoning"
+    authors: "Haoji Zhang, Xin Gu, Jiawen Li, Chixiang Ma, Sule Bai, <strong>Chubin Zhang</strong>, Bowen Zhang, Zhichao Zhou, Dongliang He, Yansong Tang"
+    year: 2026
+    conference_short: "CVPR"
+    conference: "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026"
+    arxiv: "https://arxiv.org/abs/2508.04416"
+    pdf: "https://arxiv.org/pdf/2508.04416"
+    page: "https://zhang9302002.github.io/thinkingwithvideos-page/"
+    code: "https://github.com/zhang9302002/ThinkingWithVideos"
+    image: "./assets/img/publications/thinking-with-videos-method.webp"
+    selected_order: 6
+    tldr: "Teaches video models to retrieve relevant frames while reasoning, using tool-augmented reinforcement learning for long-video question answering and temporal grounding."
+
+  - id: "vla-rl"
+    title: "VLA-RL: Towards Masterful and General Robotic Manipulation with Scalable Reinforcement Learning"
+    authors: "Guanxing Lu, Wenkai Guo, <strong>Chubin Zhang</strong>, Yuheng Zhou, Haonan Jiang, Zifeng Gao, Yansong Tang, Ziwei Wang"
+    year: 2026
+    conference_short: "IROS"
+    conference: "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2026"
+    arxiv: "https://arxiv.org/abs/2505.18719"
+    pdf: "https://arxiv.org/pdf/2505.18719"
+    code: "https://github.com/GuanxingLu/vlarl"
+    image: "./assets/img/publications/vla-rl-method.webp"
+    selected_order: 3
+    tldr: "Improves pretrained vision-language-action models through scalable online reinforcement learning, using a robotic process reward model to guide exploration."
+
+  - id: "occnerf"
+    title: "OccNeRF: Advancing 3D Occupancy Prediction in LiDAR-Free Environments"
+    authors: "<strong>Chubin Zhang</strong>, Juncheng Yan, Yi Wei, Jiaxin Li, Li Liu, Yansong Tang, Yueqi Duan, Jiwen Lu"
+    year: 2025
+    conference_short: "TIP"
+    conference: "IEEE Transactions on Image Processing (TIP), 2025"
+    arxiv: "https://arxiv.org/abs/2312.09243"
+    pdf: "https://arxiv.org/pdf/2312.09243"
+    page: "https://lin-shan.com/OccNeRF/"
+    code: "https://github.com/LinShan-Bin/OccNeRF"
+    image: "./assets/img/publications/occnerf-method.webp"
+    selected_order: 7
+    tldr: "Learns semantic 3D occupancy from multi-camera images without LiDAR or 3D supervision, combining neural rendering, photometric consistency, and 2D semantic cues."
+
+  - id: "geolrm"
+    title: "GeoLRM: Geometry-Aware Large Reconstruction Model for High-Quality 3D Gaussian Generation"
+    authors: "<strong>Chubin Zhang</strong>, Hongliang Song, Yi Wei, Yu Chen, Jiwen Lu, Yansong Tang"
+    year: 2024
+    conference_short: "NeurIPS"
+    conference: "Advances in Neural Information Processing Systems (NeurIPS), 2024"
+    arxiv: "https://arxiv.org/abs/2406.15333"
+    pdf: "https://proceedings.neurips.cc/paper_files/paper/2024/file/6506964d22ede4d36adae956e6a9919a-Paper-Conference.pdf"
+    page: "https://lin-shan.com/GeoLRM/"
+    code: "https://github.com/alibaba-yuanjing-aigclab/GeoLRM"
+    image: "./assets/img/publications/geolrm-method.webp"
+    tldr: "Reconstructs detailed 3D Gaussian assets from multiple images using sparse 3D anchor points and geometry-aware attention, enabling efficient reconstruction with dense input views."
+
+  - id: "semantic-ray"
+    title: "Semantic Ray: Learning a Generalizable Semantic Field with Cross-Reprojection Attention"
+    authors: "Fangfu Liu, <strong>Chubin Zhang</strong>, Yu Zheng, Yueqi Duan"
+    year: 2023
+    conference_short: "CVPR"
+    conference: "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2023"
+    arxiv: "https://arxiv.org/abs/2303.13014"
+    pdf: "https://arxiv.org/pdf/2303.13014"
+    page: "https://liuff19.github.io/S-Ray/"
+    code: "https://github.com/THU-SI/Semantic-Ray"
+    image: "./assets/img/publications/semantic-ray-method.webp"
+    tldr: "Learns generalizable semantic fields by aggregating context across reprojected image rays, using efficient attention to transfer semantic understanding to previously unseen scenes."
