@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "source_revision": "2026-09-23 LayerNorm-corrected Studio reconstructions",
+  "display_crop": [
+    0,
+    32,
+    320,
+    224
+  ],
+  "display_size": [
+    320,
+    192
+  ],
+  "decoded_webp_encoding": "lossless; no color adjustment or resampling",
+  "feature_normalization": {
+    "id": "policy-dino-final-ln-inverse-affine-v1",
+    "formula": "(policy_tokens - beta) / gamma",
+    "source_dtype": "torch.bfloat16",
+    "source_layernorm_eps": 1e-05,
+    "target_layernorm_eps": 1e-05,
+    "affine_float32_sha256": "21ef6bdb6a44cbf145e43f9ac0d30b550013e2e274d6fb3799d1be58d77efca5",
+    "target": "RAEv2 default DINOv3 k1: final LayerNorm without affine",
+    "pooled_and_predicted_same_transform": true,
+    "rgb_input": false
+  },
+  "decoder": {
+    "repo_id": "nyu-visionx/RAEv2-models",
+    "revision": "9770b7b980fa1875c8e6d65f226c615c0ce908a8",
+    "file": "stage1/imagenet/dinov3b-k1/decoder.pt",
+    "sha256": "dcc2df7bbe71770b8e8a0f240264bb4078fd7d44b46bba887416138b34b643eb",
+    "bytes": 1661586415,
+    "endpoint": "https://hf-mirror.com",
+    "encoder": "dinov3_vitb16_pretrain_lvd1689m-73cec8be.pth",
+    "feature": "last-layer normalized patch tokens, k=1"
+  },
+  "decoder_code_commit": "8a0d238f8dc3b261aba98b217f6c79c0182e8e94",
+  "examples": {
+    "robot": {
+      "case": "trex_9_30",
+      "dataset": "trex",
+      "episode": 9,
+      "start": 30,
+      "future_frame": 90,
+      "seed": 42,
+      "flow_steps": 16,
+      "feature_shape": [
+        12,
+        10,
+        768
+      ],
+      "future_removed_before_inference": true,
+      "features_sha256": "23b94a8b5232fa6c64938fc0dec1740d7ab6ac043cfcb9894b5b639f2d99e76e",
+      "visualization_sha256": "9cb3b3fc4eb175278438621c09de7639c5f99bca9a6bb5bee68e7f4b31d04ecb",
+      "images": {
+        "current": {
+          "file": "robot-current.webp",
+          "sha256": "dd89ef5ea681511b794fe1c8deb2f73a550abcb9e3562062644089fbb8c3852c",
+          "source_file": "current.png",
+          "source_sha256": "4b3dacece407166b882985381f0f44ac47d359902c87fdf7358a1417e1530429",
+          "source_crop_rgb_sha256": "4fcfa65c363ae80910af481faa58552173296db58b5760bee5fe0a761a784d26"
+        },
+        "future": {
+          "file": "robot-future.webp",
+          "sha256": "87e9597aba377bf4caff282b55010aa8ca38020d5062942f5c4be3583347f3fb",
+          "source_file": "future_gt.png",
+          "source_sha256": "d3e8d41dadd747fe727142d34b6aa5e894c7d914f5b1e1144ba75e87bd5fc7d3",
+          "source_crop_rgb_sha256": "f4fb5dd15052e6481c38164b3e358cd5922caca916d93d2b7229a66ba7590d10"
+        },
+        "prediction": {
+          "file": "robot-prediction-lnfix-f30f6cecf589.webp",
+          "sha256": "f30f6cecf5895043500f47477626b6d8e80aa680fcad1936c1478623282a5682",
+          "source_file": "predicted_decoded.png",
+          "source_sha256": "b7b884b6c2770711f10d6268f9053b92a4ef642830588978358021cc2790b7e8",
+          "source_crop_rgb_sha256": "23be67ec9b80e8a3e8993f20d3cce61212b8b7742205cbb35e4f902d52367ad2"
+        },
+        "reference": {
+          "file": "robot-reference-lnfix-bd60febc23ff.webp",
+          "sha256": "bd60febc23ff1d5514745c41321f63a35b0d8c81cc0bc8a24e52f1f9e9568f2a",
+          "source_file": "future_gt_decoded.png",
+          "source_sha256": "ec433441144b7772e58a69396cd3973013cebc6e7a1a9d6c585d9946a98c4ef7",
+          "source_crop_rgb_sha256": "42dcd1bdf847c57cf8c7eac0174914f3978e064679dc90aaf3f2d23b3f7f5cab"
+        }
+      }
+    },
+    "human": {
+      "case": "egodex_235149_13",
+      "dataset": "egodex",
+      "episode": 235149,
+      "start": 13,
+      "future_frame": 43,
+      "seed": 42,
+      "flow_steps": 16,
+      "feature_shape": [
+        12,
+        10,
+        768
+      ],
+      "future_removed_before_inference": true,
+      "features_sha256": "e4a9a740bcd099b0a6153f991159d233092c0833387b16acbc02f7aac315ff85",
+      "visualization_sha256": "9bc1781312a915853aacf4e311e69b46799148796f850fd82f17e9d1d20442e8",
+      "images": {
+        "current": {
+          "file": "human-current.webp",
+          "sha256": "3c0ad39d7346847624b678f0e0d4e1504e7e59dbff8d7551b00c4a502f225f80",
+          "source_file": "current.png",
+          "source_sha256": "0ea2bed8a263e2a7f421b8381ed5153aa66704b45af6a7d5c198de888e87103d",
+          "source_crop_rgb_sha256": "a56468384f73ed4f3a67104295634af1bd0be247645f1e2cf33897cd8f357459"
+        },
+        "future": {
+          "file": "human-future.webp",
+          "sha256": "13ae99dd626d0ebfff75e37aa0b7b9481120e283c61c468f77c886e22f970d35",
+          "source_file": "future_gt.png",
+          "source_sha256": "c09328cfdab834d49e4eebfcf24eb4134818407fcc5774d715a8f96533e400da",
+          "source_crop_rgb_sha256": "472f503ab1e559a00059f29f979c902e209246b1d10b07a3752dd1191566d920"
+        },
+        "prediction": {
+          "file": "human-prediction-lnfix-04a1e963e805.webp",
+          "sha256": "04a1e963e8050f41308a9f4965ec28d1093a69289dfe4f67a7c737e6732386a9",
+          "source_file": "predicted_decoded.png",
+          "source_sha256": "6e4ae5cf7dd045b5af5028b6126d406c6daf29daf3b7d7676c9d86b9b5b14f10",
+          "source_crop_rgb_sha256": "9882fa9a25fd6cd5b94035254670bdb94e9cfa9b7dab8199859c67bd85b9ed4c"
+        },
+        "reference": {
+          "file": "human-reference-lnfix-2a6c38bcb082.webp",
+          "sha256": "2a6c38bcb082f161508d5931297753a526f0ff3c897a762b24bbf95fce96b374",
+          "source_file": "future_gt_decoded.png",
+          "source_sha256": "dae34977bf4f3c27d614236f6d9c3ae839b98907d3c9b9a3c78a79dd223a0f2c",
+          "source_crop_rgb_sha256": "8c92c5f53c993e78f38cff0cf8aef44154cb946613012bd131c7501039c62a19"
+        }
+      }
+    }
+  }
+}

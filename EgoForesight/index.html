@@ -19,7 +19,9 @@
   <title>EgoForesight — Learning from Noisy Egocentric Actions</title>
   <script>try{var theme=localStorage.getItem('egoforesight-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(e){}</script>
   <link rel="stylesheet" href="style.css?v=cbf229cf0753">
-  <script src="app.js?v=44eb43930492" defer></script>
+  <script src="film-sources.js?v=80c2815eea58" defer></script>
+  <script src="film-player.js?v=f8f7f2a0466d" defer></script>
+  <script src="app.js?v=fdd9e3c05224" defer></script>
 </head>
 <body>
   <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -37,8 +39,8 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <section class="promo-film" id="film" aria-label="EgoForesight project film">
     <div class="promo-stage">
-      <video id="promo-video" class="promo-video" src="assets/videos/EgoForesight_promo_v2.mp4" poster="assets/posters/egoforesight-film.jpg" width="1920" height="1080" autoplay muted playsinline controls preload="metadata" aria-label="EgoForesight project film, with narration, music, and embedded English subtitles">
-        Your browser does not support embedded video. <a href="assets/videos/EgoForesight_promo_v2.mp4">Watch the EgoForesight film.</a>
+      <video id="promo-video" class="promo-video" src="assets/videos/EgoForesight_promo_v2.mp4?v=1bb668ae486c" poster="assets/posters/egoforesight-film.jpg" width="1920" height="1080" muted playsinline controls preload="metadata" aria-label="EgoForesight project film, with narration, music, and embedded English subtitles">
+        Your browser does not support embedded video. <a href="assets/videos/EgoForesight_promo_v2.mp4?v=1bb668ae486c">Watch the EgoForesight film.</a>
       </video>
     </div>
     <div class="promo-footer">
@@ -216,8 +218,8 @@
 
     <section class="foresight-section section-shell" aria-labelledby="foresight-title"><div class="container">
       <div class="section-heading"><div><p class="eyebrow">03 / A look ahead</p><h2 id="foresight-title">Learning the effects<br><em>of an action.</em></h2></div><div class="segmented-control" role="group" aria-label="Qualitative example"><button type="button" data-example="robot" aria-pressed="true">Robot · T-Rex</button><button type="button" data-example="human" aria-pressed="false">Human · EgoDex</button></div></div>
-      <div class="forecast-grid"><figure><img id="forecast-current" src="assets/images/robot-current.webp" width="320" height="192" alt="Current RGB observation from the selected T-Rex example" loading="lazy"><figcaption><span>01</span>Current observation<small>RGB input</small></figcaption></figure><figure><img id="forecast-future" src="assets/images/robot-future.webp" width="320" height="192" alt="Observed future RGB from the same T-Rex example" loading="lazy"><figcaption><span>02</span>Observed future<small>RGB reference</small></figcaption></figure><figure class="prediction-figure"><img id="forecast-prediction" src="assets/images/robot-prediction.webp" width="320" height="192" alt="Frozen-RAE reconstruction of predicted future DINO features" loading="lazy"><figcaption><span>03</span>Predicted future features<small>Decoded for visualization</small></figcaption></figure><figure><img id="forecast-reference" src="assets/images/robot-reference.webp" width="320" height="192" alt="Frozen-RAE reconstruction of ground-truth future DINO features" loading="lazy"><figcaption><span>04</span>Reference future features<small>Same decoder &amp; feature grid</small></figcaption></figure></div>
-      <p class="figure-note">The model predicts DINO features, visualized here with a frozen RAE decoder. Prediction and reference use the same pooled grid, decoder, and crop. These are selected pretraining-source illustrations, not a held-out evaluation.</p>
+      <div class="forecast-grid"><figure><img id="forecast-current" src="assets/images/robot-current.webp" width="320" height="192" alt="Current RGB observation from the selected T-Rex example" loading="lazy"><figcaption><span>01</span>Current observation<small>RGB input</small></figcaption></figure><figure><img id="forecast-future" src="assets/images/robot-future.webp" width="320" height="192" alt="Observed future RGB from the same T-Rex example" loading="lazy"><figcaption><span>02</span>Observed future<small>RGB reference</small></figcaption></figure><figure class="prediction-figure"><img id="forecast-prediction" src="assets/images/robot-prediction-lnfix-f30f6cecf589.webp" width="320" height="192" alt="Frozen-RAE reconstruction of predicted future DINO features" loading="lazy"><figcaption><span>03</span>Predicted future features<small>Decoded for visualization</small></figcaption></figure><figure><img id="forecast-reference" src="assets/images/robot-reference-lnfix-bd60febc23ff.webp" width="320" height="192" alt="Frozen-RAE reconstruction of ground-truth future DINO features" loading="lazy"><figcaption><span>04</span>Reference future features<small>Same decoder &amp; feature grid</small></figcaption></figure></div>
+      <p class="figure-note">The model predicts DINO features, visualized here with a frozen RAE decoder. Prediction and reference use the same feature normalization, pooled grid, decoder, and crop. These are selected pretraining-source illustrations, not a held-out evaluation.</p>
     </div></section>
 
     <section class="results-section container" id="results" aria-labelledby="results-title">

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "size_cap_bytes_per_file": 80000000,
+  "sources": [
+    {
+      "id": "hevc",
+      "src": "assets/videos/EgoForesight_promo_v2_hevc.mp4?v=5288db334d48",
+      "bytes": 66735428,
+      "sha256": "5288db334d4844f38f625899769ab0fd5086b7c4e06deb6f88c4b28495bb32b0",
+      "codec": "hvc1.2.4.H123.90",
+      "width": 1920,
+      "height": 1080,
+      "fps": 24.0,
+      "bitDepth": 10,
+      "bitrate": 2719461,
+      "peakBitrate1s": 10486576,
+      "capabilityBitrate": 11540000,
+      "duration": 178.95833333333334,
+      "audio": {
+        "sampleRate": 48000,
+        "bitrate": 258189
+      }
+    },
+    {
+      "id": "h264",
+      "src": "assets/videos/EgoForesight_promo_v2.mp4?v=1bb668ae486c",
+      "bytes": 78955775,
+      "sha256": "1bb668ae486cc9fa8c5c79cf625faaf1f5e530f974581b5d9bf5d4b84393c078",
+      "codec": "avc1.640029",
+      "width": 1920,
+      "height": 1080,
+      "fps": 24.0,
+      "bitDepth": 8,
+      "bitrate": 3266169,
+      "peakBitrate1s": 9843496,
+      "capabilityBitrate": 10830000,
+      "duration": 178.95833333333334,
+      "audio": {
+        "sampleRate": 48000,
+        "bitrate": 258189
+      }
+    }
+  ]
+}

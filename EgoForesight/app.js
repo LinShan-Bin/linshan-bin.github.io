@@ -43,6 +43,7 @@
   let promoVisible = false;
   let promoManuallyPaused = false;
   let promoAutoPausing = false;
+  let promoDelivery = null;
 
   function updatePromoControls() {
     const soundOn = !promoVideo.muted && promoVideo.volume > 0;
@@ -51,8 +52,10 @@
     promoSoundButton.title = label;
     $('span', promoSoundButton).textContent = label;
     $('use', promoSoundButton).setAttribute('href', soundOn ? '#icon-sound-on' : '#icon-play');
-    promoSoundButton.disabled = Boolean(promoVideo.error);
-    const status = promoVideo.error
+    promoSoundButton.disabled = Boolean(promoVideo.error) && !promoDelivery?.switching;
+    const status = promoDelivery?.switching
+      ? 'Preparing playback…'
+      : promoVideo.error
       ? 'The film could not load. Please reload to try again.'
       : promoVideo.ended
         ? 'Film complete · Press play to watch again'
@@ -62,12 +65,14 @@
     if (promoStatus.textContent !== status) promoStatus.textContent = status;
   }
   function pausePromoVideo() {
+    promoDelivery?.suspendResume();
     if (promoVideo.paused) return;
     promoAutoPausing = true;
     promoVideo.pause();
   }
   function playPromoVideo() {
-    if (!promoVisible || document.hidden || reducedMotion.matches || promoManuallyPaused || promoVideo.ended) return;
+    if (!promoVisible || document.hidden || reducedMotion.matches || promoManuallyPaused || promoVideo.ended ||
+        (promoDelivery && !promoDelivery.canPlay) || !promoVideo.paused) return;
     promoVideo.play().catch(updatePromoControls);
   }
   function enterProject() {
@@ -82,12 +87,24 @@
     enterProject();
   }));
   promoVideo.muted = true;
-  // The HTML autoplay attribute is a no-JS fallback. Once enhanced, the
-  // observer starts playback so an offscreen film cannot autoplay later.
+  // Native H.264 controls remain available without JavaScript. The observer
+  // owns autoplay so the fallback cannot race the bounded codec probe or
+  // start a full download while the film is offscreen.
   promoVideo.autoplay = false;
   pausePromoVideo();
+  // H.264 remains the HTML/no-JS source. A bounded, decode-free capability
+  // probe may select one smaller efficient source before playback begins.
+  if (window.EgoForesightFilmPlayer && window.EGOFORESIGHT_FILM_SOURCES) {
+    promoDelivery = window.EgoForesightFilmPlayer.create(promoVideo, window.EGOFORESIGHT_FILM_SOURCES.sources, {
+      isVisible: () => promoVisible && !document.hidden,
+      mayResume: () => promoVisible && !document.hidden && !promoManuallyPaused,
+      onChange: updatePromoControls,
+      onReady: playPromoVideo
+    });
+  }
   promoSoundButton.hidden = false;
   promoSoundButton.addEventListener('click', () => {
+    promoDelivery?.cancelUpgradeForUserGesture();
     const enableSound = promoVideo.muted || promoVideo.volume === 0;
     promoVideo.muted = !enableSound;
     if (enableSound) {
@@ -104,7 +121,8 @@
     promoManuallyPaused = false;
     updatePromoControls();
   });
-  promoVideo.addEventListener('pause', () => {
+  promoVideo.addEventListener('pause', event => {
+    if (promoDelivery?.isInternalPause(event)) { promoAutoPausing = false; updatePromoControls(); return; }
     if (!promoAutoPausing && promoVisible && !document.hidden && promoVideo.paused && !promoVideo.ended) promoManuallyPaused = true;
     promoAutoPausing = false;
     updatePromoControls();
@@ -382,7 +400,23 @@
     else if (demoVisible) playActiveVideo();
   });
 
-  // Stored, matched qualitative examples from the paper's selected assets.
+  // Same selected forecasts, re-decoded with the DINO LayerNorm fix (2026-09-23).
+  // Content-hashed reconstruction names bypass cached, pre-fix images.
+  // Provenance and source hashes: assets/images/forecast-sources.json.
+  const forecastSources = {
+    robot: {
+      current: 'robot-current.webp',
+      future: 'robot-future.webp',
+      prediction: 'robot-prediction-lnfix-f30f6cecf589.webp',
+      reference: 'robot-reference-lnfix-bd60febc23ff.webp'
+    },
+    human: {
+      current: 'human-current.webp',
+      future: 'human-future.webp',
+      prediction: 'human-prediction-lnfix-04a1e963e805.webp',
+      reference: 'human-reference-lnfix-2a6c38bcb082.webp'
+    }
+  };
   $$('[data-example]').forEach(button => button.addEventListener('click', () => {
     const example = button.dataset.example;
     const name = example === 'robot' ? 'T-Rex robot' : 'EgoDex human';
@@ -394,7 +428,7 @@
     };
     Object.keys(alt).forEach(kind => {
       const img = $(`#forecast-${kind}`);
-      img.src = `assets/images/${example}-${kind}.webp`;
+      img.src = `assets/images/${forecastSources[example][kind]}`;
       img.alt = alt[kind];
     });
     $$('[data-example]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
