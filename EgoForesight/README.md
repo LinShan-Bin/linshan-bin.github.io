@@ -23,7 +23,15 @@ Open `http://127.0.0.1:8765/EgoForesight/`. The page can also be opened directly
 - Scaling measurements follow `figures/scaling_data.json`; benchmark averages follow `tables/robocasa_results.tex`. The matched scaling baseline and the published DIAL comparison are described separately.
 - The three displayed real-world success rates follow `figures/real_world_scores.tex`, with 20 evaluation trials and 100 post-training demonstrations per task. No three-task average is substituted for the paper's full evaluation.
 
-## Videos
+## Featured film
+
+The page opens with a viewport-height film section before the project navigation and hero. It uses `assets/videos/EgoForesight_promo_v2.mp4`, copied without re-encoding from the supplied promotional film. It is approximately 2:59 long, 1920×1080 at 24 fps, with H.264 video, AAC narration/music, and embedded English subtitles. `assets/posters/egoforesight-film.jpg` is a frame from the film.
+
+The film autoplays inline and muted while the opening section is mostly visible, with a prominent **Play with sound** pill at the lower-right of the opening screen. Its translucent dark background, gold outline, and play icon follow the supplied visual reference. The video occupies the entire viewport: neither a top toolbar nor a bottom control row reserves any screen space. The translucent sound button and scroll cue float over the video, above the native control area. The rest of the transparent overlay does not intercept pointer input. The button stays in sync with native mute/volume changes, and becomes **Mute sound** after audio is enabled. The video uses `object-fit: contain`: it fits the available screen without cropping the film or its embedded subtitles, with letterboxing where needed. Native pause, seeking, volume, and fullscreen controls remain available. No audio starts without a visitor's action.
+
+Visitors can scroll down normally at any time or select **Scroll to the project**. The film plays once at its original speed; when it ends while the intro is still in view, the page scrolls to the project hero below the sticky navigation. It does not pull back visitors who have already moved into the page, and returning to a completed film does not automatically replay it. Playback pauses when the intro is mostly out of view or the tab is in the background. Manual pauses and reduced-motion preferences are respected, including instant rather than animated entry for reduced motion. The redundant three-thumbnail demo strip has been removed from the hero; all three real-world videos remain in the dedicated demo section below.
+
+## Demo videos
 
 Only Bottle opening, Handover, and Syringe transfer are included. The source named `screw.MOV` contains the syringe-transfer task. The pick-and-place recording is intentionally excluded.
 
@@ -46,7 +54,7 @@ Detailed encoding parameters, byte counts, timings, and poster selections are re
 
 ## Interaction and accessibility
 
-Method and demo tabs support arrow keys, Home, and End. Reliability and denoising sliders support keyboard input. Animations can be paused and respect `prefers-reduced-motion`; offscreen animation work is skipped. Only the selected, visible video plays, and inactive clips load on demand. The page supports system/light/dark themes, narrow screens, image descriptions, a skip link, native video controls, and accessible data tables.
+Method and demo tabs support arrow keys, Home, and End. Reliability and denoising sliders support keyboard input. Animations can be paused and respect `prefers-reduced-motion`; offscreen animation work is skipped. Only the selected, visible demo clip plays, and inactive demo clips load on demand; the featured film uses the separate playback controls described above. The page supports system/light/dark themes, narrow screens, image descriptions, a skip link, native video controls, and accessible data tables.
 
 ## Math font
 

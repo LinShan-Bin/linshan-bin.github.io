@@ -35,6 +35,101 @@
   systemTheme.addEventListener('change', updateThemeLabel);
   updateThemeLabel();
 
+  // The featured film has its own audio controls; demo clips remain silent.
+  const promoFilm = $('#film');
+  const promoVideo = $('#promo-video');
+  const promoSoundButton = $('#promo-sound-toggle');
+  const promoStatus = $('#promo-status');
+  let promoVisible = false;
+  let promoManuallyPaused = false;
+  let promoAutoPausing = false;
+
+  function updatePromoControls() {
+    const soundOn = !promoVideo.muted && promoVideo.volume > 0;
+    const label = soundOn ? 'Mute sound' : 'Play with sound';
+    promoSoundButton.classList.toggle('sound-on', soundOn);
+    promoSoundButton.title = label;
+    $('span', promoSoundButton).textContent = label;
+    $('use', promoSoundButton).setAttribute('href', soundOn ? '#icon-sound-on' : '#icon-play');
+    promoSoundButton.disabled = Boolean(promoVideo.error);
+    const status = promoVideo.error
+      ? 'The film could not load. Please reload to try again.'
+      : promoVideo.ended
+        ? 'Film complete · Press play to watch again'
+        : promoVideo.paused
+          ? `Press play to watch · Sound ${soundOn ? 'on' : 'off'}`
+          : soundOn ? 'Playing with sound · Narration & music' : 'Playing muted · Best with sound';
+    if (promoStatus.textContent !== status) promoStatus.textContent = status;
+  }
+  function pausePromoVideo() {
+    if (promoVideo.paused) return;
+    promoAutoPausing = true;
+    promoVideo.pause();
+  }
+  function playPromoVideo() {
+    if (!promoVisible || document.hidden || reducedMotion.matches || promoManuallyPaused || promoVideo.ended) return;
+    promoVideo.play().catch(updatePromoControls);
+  }
+  function enterProject() {
+    pausePromoVideo();
+    // Align the project below its sticky nav, without trapping normal scrolling.
+    const top = $('#main').getBoundingClientRect().top + window.scrollY - $('.site-nav').getBoundingClientRect().height;
+    $('#overview').focus({ preventScroll: true });
+    window.scrollTo({ top: Math.max(0, top), behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+  }
+  $$('[data-enter-project]').forEach(link => link.addEventListener('click', event => {
+    event.preventDefault();
+    enterProject();
+  }));
+  promoVideo.muted = true;
+  // The HTML autoplay attribute is a no-JS fallback. Once enhanced, the
+  // observer starts playback so an offscreen film cannot autoplay later.
+  promoVideo.autoplay = false;
+  pausePromoVideo();
+  promoSoundButton.hidden = false;
+  promoSoundButton.addEventListener('click', () => {
+    const enableSound = promoVideo.muted || promoVideo.volume === 0;
+    promoVideo.muted = !enableSound;
+    if (enableSound) {
+      if (promoVideo.volume === 0) promoVideo.volume = 1;
+      promoManuallyPaused = false;
+      // Keep play() in this user gesture to unlock audio on mobile browsers.
+      promoVideo.play().catch(updatePromoControls);
+    }
+    updatePromoControls();
+  });
+  promoVideo.addEventListener('volumechange', updatePromoControls);
+  promoVideo.addEventListener('error', updatePromoControls);
+  promoVideo.addEventListener('play', () => {
+    promoManuallyPaused = false;
+    updatePromoControls();
+  });
+  promoVideo.addEventListener('pause', () => {
+    if (!promoAutoPausing && promoVisible && !document.hidden && promoVideo.paused && !promoVideo.ended) promoManuallyPaused = true;
+    promoAutoPausing = false;
+    updatePromoControls();
+  });
+  promoVideo.addEventListener('ended', () => {
+    updatePromoControls();
+    // Never pull a visitor back up after they have already scrolled into the page.
+    if (promoVisible && !document.hidden && promoFilm.getBoundingClientRect().bottom > window.innerHeight * 0.5) enterProject();
+  });
+  const promoObserver = new IntersectionObserver(entries => {
+    promoVisible = entries[0].isIntersecting && entries[0].intersectionRatio >= 0.5;
+    if (promoVisible) playPromoVideo();
+    else pausePromoVideo();
+  }, { threshold: 0.5 });
+  promoObserver.observe(promoFilm);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) pausePromoVideo();
+    else playPromoVideo();
+  });
+  reducedMotion.addEventListener('change', event => {
+    if (event.matches) pausePromoVideo();
+    else playPromoVideo();
+  });
+  updatePromoControls();
+
   function setMotionPaused(paused) {
     motionPaused = paused;
     explorer.classList.toggle('motion-paused', paused);
@@ -266,7 +361,6 @@
     if (demoVisible) playActiveVideo(true);
   }
   wireTabs(demoTabs, selectDemo);
-  $$('[data-demo-link]').forEach(link => link.addEventListener('click', () => selectDemo(Number(link.dataset.demoLink))));
   videos.forEach(video => {
     video.addEventListener('pause', () => {
       if (autoPausing.has(video)) autoPausing.delete(video);

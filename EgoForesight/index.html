@@ -30,9 +30,31 @@
     <symbol id="icon-paper" viewBox="0 0 24 24"><path d="M14 3H5v18h14V8l-5-5Zm0 0v5h5M8 12h8M8 16h8"/></symbol>
     <symbol id="icon-model" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 10v10M3 7l9 5 9-5M7.5 4.5l9 5v4"/></symbol>
     <symbol id="icon-play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7Z"/></symbol>
+    <symbol id="icon-sound-off" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5Zm5 4 5 6m0-6-5 6"/></symbol>
+    <symbol id="icon-sound-on" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5Zm4 3a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></symbol>
     <symbol id="icon-theme" viewBox="0 0 24 24"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4a8.5 8.5 0 1 0 11.2 11.2Z"/></symbol>
   </svg>
   <a class="skip-link" href="#main">Skip to content</a>
+  <section class="promo-film" id="film" aria-label="EgoForesight project film">
+    <div class="promo-stage">
+      <video id="promo-video" class="promo-video" src="assets/videos/EgoForesight_promo_v2.mp4" poster="assets/posters/egoforesight-film.jpg" width="1920" height="1080" autoplay muted playsinline controls preload="metadata" aria-label="EgoForesight project film, with narration, music, and embedded English subtitles">
+        Your browser does not support embedded video. <a href="assets/videos/EgoForesight_promo_v2.mp4">Watch the EgoForesight film.</a>
+      </video>
+    </div>
+    <div class="promo-footer">
+      <a class="promo-enter" href="#overview" data-enter-project>
+        <span>Scroll to the project</span>
+        <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>
+      </a>
+      <div class="promo-playback">
+        <button class="promo-sound-toggle" id="promo-sound-toggle" type="button" aria-controls="promo-video" title="Play with sound" hidden>
+          <svg class="icon" aria-hidden="true"><use href="#icon-play"/></svg>
+          <span>Play with sound</span>
+        </button>
+        <p class="promo-status" id="promo-status" aria-live="polite">Autoplays muted · Best with sound</p>
+      </div>
+    </div>
+  </section>
   <nav class="site-nav" aria-label="Main navigation">
     <div class="nav-inner">
       <a class="brand" href="#overview"><svg class="brand-mark"><use href="#icon-eye"/></svg><span>Ego<span class="accent">Foresight</span></span></a>
@@ -41,7 +63,7 @@
     </div>
   </nav>
   <main id="main">
-    <header class="hero container" id="overview">
+    <header class="hero container" id="overview" tabindex="-1">
       <p class="eyebrow hero-eyebrow"><span></span> Learning from human experience</p>
       <h1><span class="project-name">Ego<span class="accent">Foresight</span></span><span class="paper-title">Effectively Scaling Policy Learning<br class="desktop-break"> with Noisy Egocentric Actions</span></h1>
       <div class="hero-rule"></div>
@@ -64,12 +86,6 @@
         <a class="resource-link" href="https://huggingface.co/collections/LinShan/egoforesight" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#icon-model"/></svg>Models<svg class="icon small"><use href="#icon-external"/></svg></a>
       </div>
       <p class="hero-statement">Learn which actions to trust.<br><em>Learn from what happens next.</em></p>
-      <div class="hero-filmstrip" aria-label="Preview real-world demonstrations">
-        <a href="#demos" class="film-frame" data-demo-link="0"><img src="assets/posters/bottle.jpg" width="1920" height="1080" alt="Robot using two dexterous hands to open a bottle" fetchpriority="high"><span><i>01</i> Bottle opening <svg class="icon"><use href="#icon-play"/></svg></span></a>
-        <a href="#demos" class="film-frame" data-demo-link="1"><img src="assets/posters/handover.jpg" width="1920" height="1080" alt="Robot transferring a banana between its hands"><span><i>02</i> Handover <svg class="icon"><use href="#icon-play"/></svg></span></a>
-        <a href="#demos" class="film-frame" data-demo-link="2"><img src="assets/posters/screw.jpg" width="1920" height="1080" alt="Robot manipulating a syringe between two beakers"><span><i>03</i> Syringe transfer <svg class="icon"><use href="#icon-play"/></svg></span></a>
-      </div>
-      <p class="film-caption">Human experience, transferred to real-world dexterity. <a href="#demos">Watch the demos <span aria-hidden="true">↗</span></a></p>
     </header>
 
     <section class="idea-section container" aria-labelledby="idea-title">
