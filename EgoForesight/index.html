@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="EgoForesight learns better robot policies from noisy egocentric actions through reliability-conditioned corruption and privileged-future representation distillation.">
+  <meta property="og:title" content="EgoForesight: Effectively Scaling Policy Learning with Noisy Egocentric Actions">
+  <meta property="og:description" content="Learn which actions to trust. Learn from what happens next. Explore the method and real-world dexterous manipulation demos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lin-shan.com/EgoForesight/">
+  <meta property="og:image" content="https://lin-shan.com/EgoForesight/assets/posters/bottle.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://lin-shan.com/EgoForesight/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@400;450;500;550;600;650;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <title>EgoForesight — Learning from Noisy Egocentric Actions</title>
+  <script>try{var theme=localStorage.getItem('egoforesight-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(e){}</script>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icon-eye" viewBox="0 0 40 40"><path d="M3 20C10 8 30 8 37 20C30 32 10 32 3 20Z"/><circle cx="20" cy="20" r="6"/><path d="M20 2v5M20 33v5M5 6l4 4M31 30l4 4M35 6l-4 4M9 30l-4 4"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+    <symbol id="icon-code" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-15-2 18"/></symbol>
+    <symbol id="icon-paper" viewBox="0 0 24 24"><path d="M14 3H5v18h14V8l-5-5Zm0 0v5h5M8 12h8M8 16h8"/></symbol>
+    <symbol id="icon-model" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 10v10M3 7l9 5 9-5M7.5 4.5l9 5v4"/></symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7Z"/></symbol>
+    <symbol id="icon-theme" viewBox="0 0 24 24"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4a8.5 8.5 0 1 0 11.2 11.2Z"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="brand" href="#overview"><svg class="brand-mark"><use href="#icon-eye"/></svg><span>Ego<span class="accent">Foresight</span></span></a>
+      <div class="nav-links"><a href="#method">Method</a><a href="#demos">Demos</a><a href="#results">Results</a></div>
+      <button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme"><svg class="icon"><use href="#icon-theme"/></svg></button>
+    </div>
+  </nav>
+  <main id="main">
+    <header class="hero container" id="overview">
+      <p class="eyebrow hero-eyebrow"><span></span> Learning from human experience</p>
+      <h1><span class="project-name">Ego<span class="accent">Foresight</span></span><span class="paper-title">Effectively Scaling Policy Learning<br class="desktop-break"> with Noisy Egocentric Actions</span></h1>
+      <div class="hero-rule"></div>
+      <div class="authors" aria-label="Authors">
+        <a href="https://lin-shan.com/">Chubin Zhang<sup>1,2</sup></a>
+        <a href="https://changyuanwang17.github.io/">Changyuan Wang<sup>1</sup></a>
+        <a href="https://openreview.net/profile?id=~Yirui_Wang4">Yirui Wang<sup>1,5</sup></a>
+        <a href="https://rammusleo.github.io/">Ao Li<sup>1,2</sup></a>
+        <a href="https://openreview.net/profile?id=~Shilin_Ma2">Shilin Ma<sup>1</sup></a>
+        <a href="https://selen-suyue.github.io/">Yue Su<sup>3</sup></a>
+        <a href="https://homepage.zhouc.ai/">Cai Zhou<sup>4</sup></a>
+        <a href="https://xuxw98.github.io/">Xiuwei Xu<sup>5</sup></a>
+        <a href="https://scholar.google.com/citations?user=2MXFRAMAAAAJ&amp;hl=zh-CN">Tianle Zhang<sup>2</sup></a>
+        <a href="https://andytang15.github.io/">Yansong Tang<sup>1</sup></a>
+      </div>
+      <div class="affiliations"><span><sup>1</sup>Tsinghua University</span><span><sup>2</sup>JD Future Academy</span><span><sup>3</sup>University of Hong Kong</span><span><sup>4</sup>Massachusetts Institute of Technology</span><span><sup>5</sup>Loopeva</span></div>
+      <div class="resource-links">
+        <a class="resource-link" href="https://arxiv.org/abs/2610.31845" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#icon-paper"/></svg>arXiv<svg class="icon small"><use href="#icon-external"/></svg></a>
+        <a class="resource-link" href="https://github.com/LinShan-Bin/EgoForesight" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#icon-code"/></svg>Code<svg class="icon small"><use href="#icon-external"/></svg></a>
+        <a class="resource-link" href="https://huggingface.co/collections/LinShan/egoforesight" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#icon-model"/></svg>Models &amp; data<svg class="icon small"><use href="#icon-external"/></svg></a>
+      </div>
+      <p class="hero-statement">Learn which actions to trust.<br><em>Learn from what happens next.</em></p>
+      <div class="hero-filmstrip" aria-label="Preview real-world demonstrations">
+        <a href="#demos" class="film-frame" data-demo-link="0"><img src="assets/posters/bottle.jpg" width="1920" height="1080" alt="Robot using two dexterous hands to open a bottle" fetchpriority="high"><span><i>01</i> Bottle opening <svg class="icon"><use href="#icon-play"/></svg></span></a>
+        <a href="#demos" class="film-frame" data-demo-link="1"><img src="assets/posters/handover.jpg" width="1920" height="1080" alt="Robot transferring a banana between its hands"><span><i>02</i> Handover <svg class="icon"><use href="#icon-play"/></svg></span></a>
+        <a href="#demos" class="film-frame" data-demo-link="2"><img src="assets/posters/screw.jpg" width="1920" height="1080" alt="Robot manipulating a syringe between two beakers"><span><i>03</i> Syringe transfer <svg class="icon"><use href="#icon-play"/></svg></span></a>
+      </div>
+      <p class="film-caption">Human experience, transferred to real-world dexterity. <a href="#demos">Watch the demos <span aria-hidden="true">↗</span></a></p>
+    </header>
+
+    <section class="idea-section container" aria-labelledby="idea-title">
+      <div class="section-intro"><p class="eyebrow">The idea</p><h2 id="idea-title">More experience.<br><em>Better supervision.</em></h2></div>
+      <div class="idea-copy"><p>Egocentric videos bring diversity to robot learning. But tracking and retargeting can make their action labels unreliable.</p><p><strong>EgoForesight</strong> learns from this imperfect data by regulating how much it trusts each source, while using <strong>demonstrated outcomes</strong> to teach action-relevant representations.</p></div>
+      <div class="metrics-strip">
+        <div><strong>30,000<span> h</span></strong><p>Pretraining experience</p></div>
+        <div><strong>20.5<span>% ↓</span></strong><p>Real-world action MSE</p></div>
+        <div><strong>8.1<span> pp ↑</span></strong><p>RoboCasa few-shot success</p></div>
+      </div>
+      <p class="comparison-note">Improvements over a matched baseline at 30k hours. <a href="#results">Explore the scaling results <span aria-hidden="true">↗</span></a></p>
+    </section>
+
+    <section class="method-section section-shell" id="method" aria-labelledby="method-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">01 / How it works</p><h2 id="method-title">Trust the action.<br><em>Anticipate the outcome.</em></h2></div><p class="section-deck">Two complementary learning signals,<br>inside one joint vision–action flow.</p></div>
+        <div class="method-explorer">
+          <div class="explorer-toolbar"><span class="micro-label">Explore the method</span><button class="quiet-button" id="motion-toggle" type="button" aria-pressed="false">Ⅱ Pause animations</button></div>
+          <div class="method-tabs" role="tablist" aria-label="Method components">
+            <button id="method-tab-0" class="method-tab active" type="button" role="tab" aria-selected="true" aria-controls="method-panel-0" data-method="0"><span>01</span> Learn what to trust</button>
+            <button id="method-tab-1" class="method-tab" type="button" role="tab" aria-selected="false" aria-controls="method-panel-1" tabindex="-1" data-method="1"><span>02</span> Learn from the future</button>
+            <button id="method-tab-2" class="method-tab" type="button" role="tab" aria-selected="false" aria-controls="method-panel-2" tabindex="-1" data-method="2"><span>03</span> Anticipate &amp; act</button>
+          </div>
+
+          <div id="method-panel-0" class="method-panel" role="tabpanel" aria-labelledby="method-tab-0" tabindex="0">
+            <div class="panel-copy"><span class="component-tag rust">Reliability-conditioned corruption</span><h3>Less reliable labels.<br> Stronger action corruption.</h3>
+              <div class="tau-definition">
+                <div class="tau-definition-heading"><math aria-label="tau is between zero and one"><mi>τ</mi><mo>∈</mo><mo>[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>]</mo></math><strong>Corruption level</strong></div>
+                <div class="tau-endpoints"><span><math><mi>τ</mi><mo>=</mo><mn>0</mn></math>Clean data</span><span aria-hidden="true">→</span><span><math><mi>τ</mi><mo>=</mo><mn>1</mn></math>Gaussian noise</span></div>
+                <div class="tau-modalities"><span><math><msub><mi>τ</mi><mi>v</mi></msub></math> future vision</span><span><math><msub><mi>τ</mi><mi>a</mi></msub></math> action</span></div>
+              </div>
+              <p>Lower-reliability sources receive stronger action corruption. Future vision stays comparatively more informative.</p>
+              <div class="reliability-control"><label for="reliability">Source reliability <span class="math-value"><math><msub><mi>q</mi><mi>d</mi></msub><mo>=</mo></math><output id="reliability-value" for="reliability">0.20</output></span></label><input id="reliability" type="range" min="0" max="100" step="1" value="20" aria-describedby="reliability-hint"><div class="range-labels" id="reliability-hint"><span>Less reliable</span><span>More reliable</span></div><div class="preset-buttons"><button type="button" data-reliability="20" aria-pressed="true">Noisier source · 0.2</button><button type="button" data-reliability="100" aria-pressed="false">Reliable source · 1.0</button></div></div>
+            </div>
+            <div class="reliability-visual">
+              <div class="chart-topline"><span class="micro-label">Where action supervision is allocated</span><span class="live-dot">Interactive</span></div>
+              <svg id="reliability-chart" class="density-chart" viewBox="0 0 500 265" role="img" aria-labelledby="density-title density-desc"><title id="density-title">Action corruption probability density</title><desc id="density-desc">Lower reliability concentrates the action-time density toward stronger corruption. Vision time stays uniform. All sources retain full action-time support.</desc><defs><linearGradient id="density-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity=".24"/><stop offset="1" stop-color="currentColor" stop-opacity=".02"/></linearGradient></defs><g class="chart-grid"><path d="M50 35H466M50 80H466M50 125H466M50 170H466M50 215H466"/></g><g class="axis-label"><text x="32" y="219">0</text><text x="32" y="174">1</text><text x="32" y="129">2</text><text x="32" y="84">3</text><text x="32" y="39">4</text><text x="50" y="239">0 · Clean</text><text x="466" y="239" text-anchor="end">Noise · 1</text><text x="50" y="18">Density</text><text x="258" y="260" text-anchor="middle">Action corruption time <tspan class="svg-math">τₐ</tspan></text></g><path id="density-area" fill="url(#density-fill)"/><path class="vision-density" d="M50 170H466"/><path id="density-line" class="action-density"/><circle id="density-marker" r="5" cx="340" cy="125"/></svg>
+              <div class="chart-legend"><span><i class="line-key rust-key"></i>Action · <math><mi mathvariant="normal">Beta</mi><mo>(</mo><mi>α</mi><mo>+</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></math></span><span><i class="line-key sage-key dashed"></i>Vision · <math><mi mathvariant="normal">Uniform</mi><mo>(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></math></span></div>
+              <div class="corruption-readouts"><div><span>Expected action noise</span><strong id="mean-noise">0.78</strong></div><div><span>Action loss weight</span><strong id="loss-weight">0.20</strong></div><div><span>Vision noise (mean)</span><strong>0.50</strong></div></div>
+              <div class="sampler-equations"><math><mi>α</mi><mo>=</mo><mn>0.5</mn><mo>+</mo><mo>(</mo><mn>1</mn><mo>−</mo><msub><mi>q</mi><mi>d</mi></msub><mo>)</mo><mo>×</mo><mn>2.5</mn></math><span>Regular sampler: <math><mn>0</mn><mo>≤</mo><msub><mi>τ</mi><mi>v</mi></msub><mo>≤</mo><msub><mi>τ</mi><mi>a</mi></msub><mo>≤</mo><mn>1</mn></math></span></div>
+            </div>
+          </div>
+
+          <div id="method-panel-1" class="method-panel teacher-panel" role="tabpanel" aria-labelledby="method-tab-1" tabindex="0" hidden>
+            <div class="panel-copy"><span class="component-tag lavender">Privileged-future representation distillation</span><h3>The outcome teaches<br> what the action should mean.</h3><p>An EMA teacher sees the current scene and the <strong>observed future</strong>. Its deeper action features supervise an earlier student layer, while the student receives a corrupted future.</p><p class="small-copy">Both branches receive the same corrupted action input. The teacher is updated by EMA; its feature targets have stopped gradients.</p><span class="training-badge">Observed future · training only</span></div>
+            <div class="distillation-visual" aria-label="Animated teacher and student representation distillation diagram">
+              <div class="model-lane student-lane"><div class="lane-label"><strong>Student</strong><span>Corrupted future</span></div><div class="lane-flow"><div class="frame-pair"><img src="assets/images/robot-current.webp" alt="Student current observation" width="320" height="192" loading="lazy"><div class="corrupted-frame"><img src="assets/images/robot-future.webp" alt="Illustration of a corrupted future representation" width="320" height="192" loading="lazy"><div class="noise-texture"></div></div></div><span class="flow-connector" aria-hidden="true">→</span><div class="layer-stack"><i></i><i class="selected-layer student-feature"><math><msub><mi>ℓ</mi><mi>s</mi></msub></math></i><i></i><i></i><i></i></div></div><div class="lane-detail"><span>Current + noisy future</span><strong>Early action features</strong></div></div>
+              <svg class="learning-paths" viewBox="0 0 500 118" role="img" aria-labelledby="learning-paths-title learning-paths-desc">
+                <title id="learning-paths-title">Two separate learning signals</title><desc id="learning-paths-desc">The blue dashed arrow updates teacher parameters from the student by EMA. The purple upward arrow distills deeper teacher action features into earlier student features; teacher targets are detached.</desc>
+                <defs><marker id="ema-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 9 5 1 9Z"/></marker><marker id="distillation-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 9 5 1 9Z"/></marker></defs>
+                <path class="ema-update-path" d="M58 2V112" marker-end="url(#ema-arrow)"/>
+                <text class="ema-path-label" x="80" y="50">EMA update</text><text class="learning-path-detail" x="80" y="68">Student → teacher</text>
+                <path class="distillation-path" d="M450 116V96Q450 80 434 80H365Q349 80 349 64V8" marker-end="url(#distillation-arrow)"/>
+                <text class="distillation-path-label" x="369" y="36">Distillation</text><text class="learning-path-detail" x="369" y="54">Deeper → early</text>
+                <text class="distillation-target-note" x="286" y="105">Detached teacher targets</text>
+              </svg>
+              <div class="model-lane teacher-lane"><div class="lane-label"><strong>EMA teacher</strong><span>Observed future · <math><msubsup><mi>τ</mi><mi>v</mi><mo>′</mo></msubsup><mo>=</mo><mn>0</mn></math></span></div><div class="lane-flow"><div class="frame-pair"><img src="assets/images/robot-current.webp" alt="Teacher current observation" width="320" height="192" loading="lazy"><img src="assets/images/robot-future.webp" alt="Clean observed future available to the teacher during training" width="320" height="192" loading="lazy"></div><span class="flow-connector" aria-hidden="true">→</span><div class="layer-stack"><i></i><i></i><i></i><i class="selected-layer teacher-feature"><math><msub><mi>ℓ</mi><mi>t</mi></msub></math></i><i></i></div></div><div class="lane-detail"><span>Current + clean future</span><strong>Deeper action features</strong></div></div>
+              <p class="visual-footnote">Schematic feature transfer. Image noise illustrates corruption in feature space.</p>
+            </div>
+          </div>
+
+          <div id="method-panel-2" class="method-panel inference-panel" role="tabpanel" aria-labelledby="method-tab-2" tabindex="0" hidden>
+            <div class="panel-copy"><span class="component-tag sage">Joint vision–action flow</span><h3>Imagine the outcome.<br> Refine the action.</h3><p>Two coupled experts use current context to jointly denoise <strong>future visual features</strong> and a <strong>30-step action chunk</strong>.</p><p class="small-copy">The heatmap shows the joint training distribution. Along the purple inference path, vision resolves earlier and informs the action stream through joint attention.</p><span class="training-badge deployment-badge">Deployment · current context only</span>
+              <div class="context-bar"><img src="assets/images/robot-current.webp" alt="Current robot observation conditioning the joint flow" width="320" height="192" loading="lazy"><div><strong>Current context</strong><span>Observation · instruction · state · embodiment</span></div><span class="context-arrow">↓</span><span class="context-model">VLM</span></div>
+              <div class="joint-experts"><div class="expert vision-expert"><div class="expert-heading"><strong>Vision expert</strong><span class="math-value"><math><msub><mi>τ</mi><mi>v</mi></msub><mo>=</mo></math><output id="vision-time">1.00</output></span></div><span class="expert-caption">Future visual features</span></div><div class="joint-link"><span>⇄</span><small>Joint<br>attention</small></div><div class="expert action-expert"><div class="expert-heading"><strong>Action expert</strong><span class="math-value"><math><msub><mi>τ</mi><mi>a</mi></msub><mo>=</mo></math><output id="action-time">1.00</output></span></div><span class="expert-caption">30-step action chunk</span></div></div>
+            </div>
+            <div class="inference-visual">
+              <div class="joint-density-heading"><strong>Joint corruption distribution</strong><span class="math-value"><math><msub><mi>q</mi><mi>d</mi></msub><mo>=</mo></math><output id="joint-reliability-value">0.20</output></span></div>
+              <div class="preset-buttons joint-presets" aria-label="Joint distribution source reliability"><button type="button" data-reliability="20" aria-pressed="true">Noisier source</button><button type="button" data-reliability="100" aria-pressed="false">Reliable source</button></div>
+              <svg id="joint-density-chart" class="joint-density-chart" viewBox="0 0 500 356" role="img" aria-labelledby="joint-density-title joint-density-desc">
+                <title id="joint-density-title">Joint distribution of vision and action corruption times</title><desc id="joint-density-desc">Training density lies below the diagonal, where vision time is less than action time. Color uses a logarithmic density scale. The purple inference trajectory follows vision time equal to action time to the power 1.5, from Gaussian noise at one, one to clean outputs at zero, zero.</desc>
+                <defs><clipPath id="joint-support"><path d="M64 304H346V22Z"/></clipPath><linearGradient id="joint-color-scale" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#faf1dc"/><stop offset=".25" stop-color="#e7cda7"/><stop offset=".5" stop-color="#cfa471"/><stop offset=".75" stop-color="#b07a42"/><stop offset="1" stop-color="#895020"/></linearGradient><marker id="inference-direction" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1 9 5 1 9"/></marker></defs>
+                <rect class="joint-plot-background" x="64" y="22" width="282" height="282" rx="2"/>
+                <g id="joint-density-cells" clip-path="url(#joint-support)" shape-rendering="crispEdges"></g>
+                <path class="joint-diagonal" d="M64 304 346 22"/>
+                <g class="joint-excluded-label"><text x="88" y="62">Outside support</text><text class="svg-math" x="88" y="87">τᵥ &gt; τₐ</text></g>
+                <path class="joint-axes" d="M64 22V304H346"/>
+                <g class="axis-label joint-axis-label"><text x="52" y="308" text-anchor="end">0</text><text x="52" y="167" text-anchor="end">0.5</text><text x="52" y="26" text-anchor="end">1</text><text x="64" y="323" text-anchor="middle">0</text><text x="205" y="323" text-anchor="middle">0.5</text><text x="346" y="323" text-anchor="middle">1</text><text x="205" y="349" text-anchor="middle">Action corruption <tspan class="svg-math">τₐ</tspan></text><text transform="translate(20 163) rotate(-90)" text-anchor="middle">Vision corruption <tspan class="svg-math">τᵥ</tspan></text></g>
+                <text class="joint-endpoint-label" x="346" y="12" text-anchor="end">Noise</text><text class="joint-endpoint-label" x="74" y="291">Clean</text>
+                <path id="joint-inference-halo" class="joint-inference-halo"/><path id="joint-inference-path" class="joint-inference-path"/><path id="joint-direction-arrows" class="joint-direction-arrows"/>
+                <path id="joint-time-guides" class="joint-time-guides"/><circle id="joint-time-marker" class="joint-time-marker" cx="346" cy="22" r="6"/>
+                <g class="joint-density-key"><text x="391" y="49">Density</text><text x="391" y="65" class="joint-key-note">log scale</text><rect x="392" y="82" width="15" height="156" rx="2" fill="url(#joint-color-scale)"/><text x="416" y="87">16+</text><text x="416" y="153">4</text><text x="416" y="203">1</text><text x="416" y="242">0</text></g>
+              </svg>
+              <div class="joint-path-legend"><i class="line-key lavender-key"></i><span>Inference path</span><math><msub><mi>τ</mi><mi>v</mi></msub><mo>=</mo><msubsup><mi>τ</mi><mi>a</mi><mn>1.5</mn></msubsup></math></div>
+              <div class="denoise-control"><label for="denoise-progress">Joint denoising <output id="denoise-value" for="denoise-progress">0%</output></label><input id="denoise-progress" type="range" min="0" max="100" value="0"><div class="range-labels"><span>Gaussian noise</span><span>Future + action</span></div></div>
+              <p class="visual-footnote">Regular training density; 2% clean-future boundary samples omitted.</p>
+            </div>
+          </div>
+          <div class="explorer-bottom"><span id="method-takeaway">Control where a source teaches, and how strongly it contributes.</span><button class="text-button" id="next-method" type="button">Next: learn from the future <span aria-hidden="true">→</span></button></div>
+        </div>
+        <div class="training-stages" aria-label="Two-stage pretraining with examples from the paper">
+          <article class="stage-card stage-one">
+            <div class="stage-heading"><span class="stage-number">S1</span><div><h3>Establish reliable correspondences</h3><p>Robot demonstrations + curated human trajectories.</p></div></div>
+            <div class="stage-gallery">
+              <figure><div class="stage-photo"><img src="assets/images/pretrain-agibot.webp" width="480" height="300" alt="AgiBot World robot demonstration from the paper's S1 data figure" loading="lazy"></div><figcaption>AgiBot World</figcaption></figure>
+              <figure><div class="stage-photo"><img src="assets/images/pretrain-egodex.webp" width="480" height="270" alt="EgoDex first-person kitchen demonstration from the paper's S1 data figure" loading="lazy"></div><figcaption>EgoDex</figcaption></figure>
+              <figure><div class="stage-photo"><img src="assets/images/pretrain-interndata.webp" width="480" height="270" alt="InternData-A1 simulated robot opening a pot, from the paper's S1 data figure" loading="lazy"></div><figcaption>InternData-A1</figcaption></figure>
+              <figure><div class="stage-photo"><img src="assets/images/pretrain-trex.webp" width="480" height="270" alt="T-Rex dexterous robot demonstration from the paper's S1 data figure" loading="lazy"></div><figcaption>T-Rex</figcaption></figure>
+            </div>
+            <div class="stage-outcome"><span>Joint flow pretraining</span><p>Checkpoint initializes the S2 student and EMA teacher.</p></div>
+          </article>
+          <span class="stage-arrow" aria-hidden="true">→</span>
+          <article class="stage-card stage-two">
+            <div class="stage-heading"><span class="stage-number">S2</span><div><h3>Expand human experience</h3><p>Retain S1 sources + <strong>20,000 h</strong> of egocentric video.</p></div></div>
+            <div class="stage-gallery">
+              <figure><div class="stage-photo"><img src="assets/images/pretrain-human-cleaning.webp" width="480" height="480" alt="First-person human demonstration wiping a tray, from the paper's internal egocentric dataset" loading="lazy"></div><figcaption>Cleaning</figcaption></figure>
+              <figure><div class="stage-photo"><img src="assets/images/pretrain-human-organizing.webp" width="480" height="480" alt="First-person human demonstration arranging bottles in a display box, from the paper's internal egocentric dataset" loading="lazy"></div><figcaption>Organizing</figcaption></figure>
+              <figure><div class="stage-photo"><img src="assets/images/pretrain-human-garment.webp" width="480" height="480" alt="First-person human demonstration handling a garment on a hanger, from the paper's internal egocentric dataset" loading="lazy"></div><figcaption>Garment care</figcaption></figure>
+              <figure><div class="stage-photo"><img src="assets/images/pretrain-human-object.webp" width="480" height="480" alt="First-person human demonstration holding a beverage can, from the paper's internal egocentric dataset" loading="lazy"></div><figcaption>Object handling</figcaption></figure>
+            </div>
+            <div class="stage-outcome"><span>Reliability + future distillation</span><p>Learn from the broader Internal Ego-Centric Dataset.</p></div>
+          </article>
+        </div>
+        <p class="training-figure-note">Selected frames from the paper’s pretraining data figure. <a href="assets/figures/pretraining-data.webp" target="_blank" rel="noopener">View the full figure &amp; task prompts <span aria-hidden="true">↗</span></a></p>
+        <details class="research-details"><summary>Full architecture from the paper <span aria-hidden="true">+</span></summary><figure><a href="assets/figures/method.webp" target="_blank" rel="noopener"><img src="assets/figures/method.webp" alt="Full EgoForesight architecture: training data, reliability-conditioned corruption, joint vision-action flow, and privileged-future distillation" width="1800" height="872" loading="lazy"></a><figcaption>The complete training pipeline. Click the figure to view it at full size.</figcaption></figure></details>
+      </div>
+    </section>
+
+    <section class="demos-section container" id="demos" aria-labelledby="demos-title">
+      <div class="section-heading"><div><p class="eyebrow">02 / In the real world</p><h2 id="demos-title">From human experience<br><em>to dexterous control.</em></h2></div><p class="section-deck">Galaxea R1 Pro · Sharpa Wave hands<br>58 degrees of freedom · 4× playback</p></div>
+      <div class="demo-tabs" role="tablist" aria-label="Real-world tasks"><button id="demo-tab-0" type="button" role="tab" aria-selected="true" aria-controls="demo-panel-0" data-demo="0" class="active"><span>01</span>Bottle opening</button><button id="demo-tab-1" type="button" role="tab" aria-selected="false" aria-controls="demo-panel-1" tabindex="-1" data-demo="1"><span>02</span>Handover</button><button id="demo-tab-2" type="button" role="tab" aria-selected="false" aria-controls="demo-panel-2" tabindex="-1" data-demo="2"><span>03</span>Syringe transfer</button></div>
+      <div class="demo-panel" id="demo-panel-0" role="tabpanel" aria-labelledby="demo-tab-0"><div class="video-frame"><video id="bottle-video" controls loop muted playsinline preload="metadata" poster="assets/posters/bottle.jpg" width="1920" height="1080" aria-label="Bottle opening demonstration, encoded at four times original speed"><source src="assets/videos/bottle-4x.mp4" type="video/mp4"><p><a href="assets/videos/bottle-4x.mp4">Download the bottle opening demo</a>.</p></video><span class="video-speed">4× speed</span></div><div class="demo-caption"><div><h3>A steady grasp. A precise twist.</h3><p>Unscrew the lid, place it on the table, and return the bottle to the wooden block.</p></div><div class="task-result"><strong>85<span>%</span></strong><span>Full-task success</span></div></div></div>
+      <div class="demo-panel" id="demo-panel-1" role="tabpanel" aria-labelledby="demo-tab-1" hidden><div class="video-frame"><video controls loop muted playsinline preload="none" poster="assets/posters/handover.jpg" width="1920" height="1080" aria-label="Handover demonstration, encoded at four times original speed"><source data-src="assets/videos/handover-4x.mp4" type="video/mp4"><p><a href="assets/videos/handover-4x.mp4">Download the handover demo</a>.</p></video><span class="video-speed">4× speed</span></div><div class="demo-caption"><div><h3>Two hands. One coordinated motion.</h3><p>Lift the banana with the left hand, transfer it to the right, and release it into the white box.</p></div><div class="task-result"><strong>55<span>%</span></strong><span>Full-task success</span></div></div></div>
+      <div class="demo-panel" id="demo-panel-2" role="tabpanel" aria-labelledby="demo-tab-2" hidden><div class="video-frame"><video controls loop muted playsinline preload="none" poster="assets/posters/screw.jpg" width="1920" height="1080" aria-label="Syringe transfer demonstration, encoded at four times original speed"><source data-src="assets/videos/screw-4x.mp4" type="video/mp4"><p><a href="assets/videos/screw-4x.mp4">Download the syringe transfer demo</a>.</p></video><span class="video-speed">4× speed</span></div><div class="demo-caption"><div><h3>Fine control, across a longer sequence.</h3><p>Draw material from the left beaker, dispense it into the right, then place the syringe into the white box.</p></div><div class="task-result"><strong>30<span>%</span></strong><span>Full-task success</span></div></div></div>
+      <p class="demo-note">Selected rollouts · Videos encoded at 4× original speed · Task success measured over 20 trials per task, with 100 post-training demonstrations per task.</p>
+      <noscript><p>Additional videos: <a href="assets/videos/handover-4x.mp4">Handover</a> · <a href="assets/videos/screw-4x.mp4">Syringe transfer</a>.</p></noscript>
+    </section>
+
+    <section class="foresight-section section-shell" aria-labelledby="foresight-title"><div class="container">
+      <div class="section-heading"><div><p class="eyebrow">03 / A look ahead</p><h2 id="foresight-title">Learning the effects<br><em>of an action.</em></h2></div><div class="segmented-control" role="group" aria-label="Qualitative example"><button type="button" data-example="robot" aria-pressed="true">Robot · T-Rex</button><button type="button" data-example="human" aria-pressed="false">Human · EgoDex</button></div></div>
+      <div class="forecast-grid"><figure><img id="forecast-current" src="assets/images/robot-current.webp" width="320" height="192" alt="Current RGB observation from the selected T-Rex example" loading="lazy"><figcaption><span>01</span>Current observation<small>RGB input</small></figcaption></figure><figure><img id="forecast-future" src="assets/images/robot-future.webp" width="320" height="192" alt="Observed future RGB from the same T-Rex example" loading="lazy"><figcaption><span>02</span>Observed future<small>RGB reference</small></figcaption></figure><figure class="prediction-figure"><img id="forecast-prediction" src="assets/images/robot-prediction.webp" width="320" height="192" alt="Frozen-RAE reconstruction of predicted future DINO features" loading="lazy"><figcaption><span>03</span>Predicted future features<small>Decoded for visualization</small></figcaption></figure><figure><img id="forecast-reference" src="assets/images/robot-reference.webp" width="320" height="192" alt="Frozen-RAE reconstruction of ground-truth future DINO features" loading="lazy"><figcaption><span>04</span>Reference future features<small>Same decoder &amp; feature grid</small></figcaption></figure></div>
+      <p class="figure-note">The model predicts DINO features, visualized here with a frozen RAE decoder. Prediction and reference use the same pooled grid, decoder, and crop. These are selected pretraining-source illustrations, not a held-out evaluation.</p>
+    </div></section>
+
+    <section class="results-section container" id="results" aria-labelledby="results-title">
+      <div class="section-heading"><div><p class="eyebrow">04 / What we find</p><h2 id="results-title">Make more of<br><em>every hour of experience.</em></h2></div><p class="section-deck">Matched data. Matched optimization budgets.<br> Stronger returns across the tested scales.</p></div>
+      <div class="scaling-charts"><figure class="scaling-chart"><div class="chart-heading"><h3>Real-world action error</h3><span>Open-loop MSE ↓</span></div><svg id="mse-chart" viewBox="0 0 500 290" role="img" aria-label="Action MSE at 3,000, 10,000, and 30,000 pretraining hours. Baseline: 0.090, 0.059, 0.039. EgoForesight: 0.088, 0.054, 0.031."></svg><figcaption><strong>20.5% lower</strong> MSE at 30k hours</figcaption></figure><figure class="scaling-chart"><div class="chart-heading"><h3>RoboCasa policy success</h3><span>Few-shot success (%) ↑</span></div><svg id="success-chart" viewBox="0 0 500 290" role="img" aria-label="RoboCasa success at 3,000, 10,000, and 30,000 hours. Baseline: 52.0, 54.4, 57.9 percent. EgoForesight: 58.6, 62.5, 66.0 percent."></svg><figcaption><strong>+8.1 percentage points</strong> at 30k hours</figcaption></figure></div>
+      <div class="results-controls"><div class="chart-legend"><span><i class="line-key gold-key"></i>EgoForesight</span><span><i class="line-key muted-key dashed"></i>Matched baseline</span></div><div class="scale-picker" role="group" aria-label="Highlight pretraining scale"><span>Inspect:</span><button type="button" data-scale="0" aria-pressed="false">3k h</button><button type="button" data-scale="1" aria-pressed="false">10k h</button><button type="button" data-scale="2" aria-pressed="true">30k h</button></div></div>
+      <div class="scale-summary" id="scale-summary" aria-live="polite"><strong>30,000 hours</strong><span>Action MSE: <b>0.031</b> vs. 0.039</span><span>Success: <b>66.0%</b> vs. 57.9%</span></div>
+      <p class="figure-note">The baseline disables reliability conditioning and privileged-future distillation. Data subsets and optimization budgets are identical at each scale; downstream adaptation is fixed. The MSE comparison uses the baseline’s best checkpoint. Lines connect measurements on a logarithmic hours axis.</p>
+      <div class="benchmark-section"><div class="benchmark-intro"><h3>Strong downstream performance.</h3><p>RoboCasa averages across 24 dexterous manipulation tasks, evaluated over 50 episodes per task.</p></div><div class="table-wrapper"><table><caption>RoboCasa success rate (%)</caption><thead><tr><th scope="col">Method</th><th scope="col">Few-shot<small>100 demos / task</small></th><th scope="col">Full data<small>1,000 demos / task</small></th></tr></thead><tbody><tr><th scope="row">DIAL (robot-only)</th><td>58.3</td><td>70.2</td></tr><tr><th scope="row">DIAL + EgoDex</th><td>61.1</td><td aria-label="Not reported">—</td></tr><tr class="ours-row"><th scope="row">EgoForesight <span>Ours</span></th><td>66.0</td><td>73.9</td></tr></tbody></table><p class="table-note">Published baseline comparisons use different pretraining data and optimization budgets.</p></div></div>
+      <details class="research-details"><summary>View all scaling measurements <span aria-hidden="true">+</span></summary><div class="table-wrapper"><table class="measurements-table"><caption>Measured pretraining-data scaling results</caption><thead><tr><th scope="col">Hours</th><th scope="col">Baseline MSE</th><th scope="col">Ours MSE</th><th scope="col">Baseline success</th><th scope="col">Ours success</th></tr></thead><tbody><tr><th scope="row">0</th><td>0.124</td><td>0.124</td><td>48.3%</td><td>48.3%</td></tr><tr><th scope="row">3,000</th><td>0.090</td><td>0.088</td><td>52.0%</td><td>58.6%</td></tr><tr><th scope="row">10,000</th><td>0.059</td><td>0.054</td><td>54.4%</td><td>62.5%</td></tr><tr><th scope="row">30,000</th><td>0.039</td><td>0.031</td><td>57.9%</td><td>66.0%</td></tr></tbody></table></div></details>
+    </section>
+
+    <section class="abstract-section section-shell" aria-labelledby="abstract-title"><div class="container reading-width"><p class="eyebrow">In the paper</p><h2 id="abstract-title">Abstract</h2><div class="abstract-copy"><p>Scaling policy learning requires broad experience and reliable supervision. Robot demonstrations provide high-quality trajectory supervision but are costly to collect. Egocentric videos broaden task and environment coverage, yet motion reconstruction and retargeting introduce noisy action labels. To address this challenge, we introduce <strong>EgoForesight</strong>, a vision-language-action framework that learns jointly from both sources by reducing the influence of unreliable action labels and exploiting demonstrated outcomes as complementary supervision.</p><p>A joint vision-action flow couples future visual representation prediction with action generation, unifying reliability-aware action learning with outcome-informed representation transfer. Specifically, <em>reliability-conditioned corruption</em> allocates action supervision across noise levels according to source reliability, while reliability-weighted regression regulates each source’s contribution. Complementing this treatment of noisy labels, <em>privileged-future representation distillation</em> draws supervision from demonstrated outcomes. An exponential-moving-average teacher observes the current scene and clean future to encode action-relevant structure from the resulting scene change. Its deeper representations supervise an earlier student layer receiving a corrupted future, providing outcome-informed structure beyond noisy action annotations.</p><p>Together, these mechanisms support effective scaling with noisy egocentric actions. Over the tested range, EgoForesight exhibits steeper scaling slopes than the baseline, reducing real-world open-loop action MSE by 20.5% and improving RoboCasa few-shot success by 8.1 percentage points at 30,000 hours of pretraining data. After post-training, it also achieves strong absolute performance in both simulated and real-world dexterous manipulation.</p></div></div></section>
+
+    <section class="citation-section container reading-width" id="citation" aria-labelledby="citation-title"><div class="citation-heading"><div><p class="eyebrow">For your research</p><h2 id="citation-title">Citation</h2></div><button type="button" class="quiet-button copy-button" id="copy-citation">Copy BibTeX</button></div><p class="citation-note">arXiv preprint · <a href="https://arxiv.org/abs/2610.31845" target="_blank" rel="noopener noreferrer">arXiv:2610.31845</a></p><div class="citation-code"><pre><code id="bibtex">@article{zhang2026egoforesight,
+  title={EgoForesight: Effectively Scaling Policy Learning with Noisy Egocentric Actions},
+  author={Zhang, Chubin and Wang, Changyuan and Wang, Yirui and Li, Ao and Ma, Shilin and Su, Yue and Zhou, Cai and Xu, Xiuwei and Zhang, Tianle and Tang, Yansong},
+  journal={arXiv preprint arXiv:2610.31845},
+  year={2026}
+}</code></pre></div><span id="copy-status" class="copy-status" role="status" aria-live="polite"></span></section>
+  </main>
+  <footer class="site-footer container"><a class="brand" href="#overview"><svg class="brand-mark"><use href="#icon-eye"/></svg><span>Ego<span class="accent">Foresight</span></span></a><p>© 2026 EgoForesight Authors.<br>Design inspired by <a href="../CLAP/">CLAP</a> and <a href="https://selen-suyue.github.io/OneWMNet/">OneWM</a>.</p><a class="back-to-top" href="#overview">Back to top ↑</a></footer>
+</body>
+</html>

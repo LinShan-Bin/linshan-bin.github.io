@@ -1,0 +1,86 @@
+{
+  "source": "Paper Figure 3, figures/pretraining_assets",
+  "processing": "Aspect-preserving resize, no crop; WebP quality 86. The website uses the complete frame.",
+  "images": [
+    {
+      "file": "pretrain-agibot.webp",
+      "paper_asset": "agibot_04.jpg",
+      "label": "AgiBot World",
+      "size": [
+        480,
+        300
+      ],
+      "bytes": 13438
+    },
+    {
+      "file": "pretrain-egodex.webp",
+      "paper_asset": "egodex_03.jpg",
+      "label": "EgoDex",
+      "size": [
+        480,
+        270
+      ],
+      "bytes": 10060
+    },
+    {
+      "file": "pretrain-interndata.webp",
+      "paper_asset": "intern_04.jpg",
+      "label": "InternData-A1",
+      "size": [
+        480,
+        270
+      ],
+      "bytes": 13932
+    },
+    {
+      "file": "pretrain-trex.webp",
+      "paper_asset": "trex_04.jpg",
+      "label": "T-Rex",
+      "size": [
+        480,
+        270
+      ],
+      "bytes": 20860
+    },
+    {
+      "file": "pretrain-human-cleaning.webp",
+      "paper_asset": "nvwa3099_02.jpg",
+      "label": "Tray cleaning",
+      "size": [
+        480,
+        480
+      ],
+      "bytes": 35446
+    },
+    {
+      "file": "pretrain-human-organizing.webp",
+      "paper_asset": "nvwa0714_02.jpg",
+      "label": "Shelf organizing",
+      "size": [
+        480,
+        480
+      ],
+      "bytes": 52780
+    },
+    {
+      "file": "pretrain-human-garment.webp",
+      "paper_asset": "nvwa7111_05.jpg",
+      "label": "Garment handling",
+      "size": [
+        480,
+        480
+      ],
+      "bytes": 24402
+    },
+    {
+      "file": "pretrain-human-object.webp",
+      "paper_asset": "nvwa7111_00.jpg",
+      "label": "Object handling",
+      "size": [
+        480,
+        480
+      ],
+      "bytes": 46820
+    }
+  ]
+}
