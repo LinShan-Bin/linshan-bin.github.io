@@ -31,7 +31,7 @@ main:
 
   - id: "skillmemo"
     title: "SkillMemo: Expert-guided Skill Memory Framework for Compositional Embodied Manipulation"
-    authors: "<a href=\"https://changyuanwang17.github.io/\">Changyuan Wang</a>, <a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, Zhenyu Wu, Runhao Li, Angyuan Ma, Ke Chao, Yinan Liang, <a href=\"https://xuxw98.github.io/\">Xiuwei Xu</a>, Ziwei Wang, <a href=\"https://andytang15.github.io/\">Yansong Tang</a>, <a href=\"https://ivg.au.tsinghua.edu.cn/Jiwen_Lu/\">Jiwen Lu</a>"
+    authors: "<a href=\"https://changyuanwang17.github.io/\">Changyuan Wang</a>, <a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, Zhenyu Wu, Runhao Li, Angyuan Ma, Ke Chao, Yinan Liang, <a href=\"https://xuxw98.github.io/\">Xiuwei Xu</a>, <a href=\"https://ziweiwangthu.github.io/\">Ziwei Wang</a>, <a href=\"https://andytang15.github.io/\">Yansong Tang</a>, <a href=\"https://ivg.au.tsinghua.edu.cn/Jiwen_Lu/\">Jiwen Lu</a>"
     year: 2026
     conference_short: "Preprint"
     conference: "arXiv preprint, 2026"
@@ -53,7 +53,7 @@ main:
 
   - id: "stablevla"
     title: "StableVLA: Towards Robust Vision-Language-Action Models without Extra Data"
-    authors: "Yiyang Fu, <a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, Shukai Gong, Yufan Deng, Kaiwei Sun, Qiyang Min, Qibin Hou, <a href=\"https://andytang15.github.io/\">Yansong Tang</a>, <a href=\"https://scholar.google.com/citations?user=mt5mvZ8AAAAJ&amp;hl=en\">Jianan Wang</a>, Daquan Zhou"
+    authors: "Yiyang Fu, <a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, Shukai Gong, Yufan Deng, Kaiwei Sun, Qiyang Min, Qibin Hou, <a href=\"https://andytang15.github.io/\">Yansong Tang</a>, <a href=\"https://scholar.google.com/citations?user=mt5mvZ8AAAAJ&amp;hl=en\">Jianan Wang</a>, <a href=\"https://zhoudaquan.github.io/homepage.io/\">Daquan Zhou</a>"
     year: 2026
     conference_short: "ICML"
     conference: "International Conference on Machine Learning (ICML), 2026"
@@ -80,7 +80,7 @@ main:
 
   - id: "ccdd"
     title: "Coevolutionary Continuous Discrete Diffusion: Make Your Diffusion Language Model a Latent Reasoner"
-    authors: "<a href=\"https://homepage.zhouc.ai/\">Cai Zhou</a>, Chenxiao Yang, Yi Hu, Chenyu Wang, <a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, Muhan Zhang, Lester Mackey, Tommi Jaakkola, Stephen Bates, Dinghuai Zhang"
+    authors: "<a href=\"https://homepage.zhouc.ai/\">Cai Zhou</a>, Chenxiao Yang, Yi Hu, <a href=\"https://chenyuwang-monica.github.io/\">Chenyu Wang</a>, <a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, Muhan Zhang, Lester Mackey, <a href=\"https://people.csail.mit.edu/tommi/\">Tommi Jaakkola</a>, <a href=\"https://stephenbates19.github.io/\">Stephen Bates</a>, <a href=\"https://zdhnarsil.github.io/\">Dinghuai Zhang</a>"
     year: 2026
     conference_short: "ICML"
     conference: "International Conference on Machine Learning (ICML), 2026"
@@ -120,7 +120,7 @@ main:
 
   - id: "vla-rl"
     title: "VLA-RL: Towards Masterful and General Robotic Manipulation with Scalable Reinforcement Learning"
-    authors: "Guanxing Lu, Wenkai Guo, <a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, Yuheng Zhou, Haonan Jiang, <a href=\"https://gao-zifeng.github.io/\">Zifeng Gao</a>, <a href=\"https://andytang15.github.io/\">Yansong Tang</a>, Ziwei Wang"
+    authors: "<a href=\"https://guanxinglu.github.io/\">Guanxing Lu</a>, <a href=\"https://wkguo.github.io/\">Wenkai Guo</a>, <a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, Yuheng Zhou, Haonan Jiang, <a href=\"https://gao-zifeng.github.io/\">Zifeng Gao</a>, <a href=\"https://andytang15.github.io/\">Yansong Tang</a>, <a href=\"https://ziweiwangthu.github.io/\">Ziwei Wang</a>"
     year: 2026
     conference_short: "IROS"
     conference: "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2026"
