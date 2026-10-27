@@ -80,7 +80,7 @@ main:
 
   - id: "ccdd"
     title: "Coevolutionary Continuous Discrete Diffusion: Make Your Diffusion Language Model a Latent Reasoner"
-    authors: "<a href=\"https://homepage.zhouc.ai/\">Cai Zhou</a>, Chenxiao Yang, Yi Hu, <a href=\"https://chenyuwang-monica.github.io/\">Chenyu Wang</a>, <a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, Muhan Zhang, Lester Mackey, <a href=\"https://people.csail.mit.edu/tommi/\">Tommi Jaakkola</a>, <a href=\"https://stephenbates19.github.io/\">Stephen Bates</a>, <a href=\"https://zdhnarsil.github.io/\">Dinghuai Zhang</a>"
+    authors: "<a href=\"https://homepage.zhouc.ai/\">Cai Zhou</a>, Chenxiao Yang, Yi Hu, <a href=\"https://chenyuwang-monica.github.io/\">Chenyu Wang</a>, <a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, <a href=\"https://muhanzhang.github.io/\">Muhan Zhang</a>, Lester Mackey, <a href=\"https://people.csail.mit.edu/tommi/\">Tommi Jaakkola</a>, <a href=\"https://stephenbates19.github.io/\">Stephen Bates</a>, <a href=\"https://zdhnarsil.github.io/\">Dinghuai Zhang</a>"
     year: 2026
     conference_short: "ICML"
     conference: "International Conference on Machine Learning (ICML), 2026"
