@@ -3,7 +3,7 @@
 main:
   - id: "egoforesight"
     title: "EgoForesight: Effectively Scaling Policy Learning with Noisy Egocentric Actions"
-    authors: "<strong>Chubin Zhang</strong>, Changyuan Wang, Yirui Wang, Ao Li, Shilin Ma, Yue Su, Cai Zhou, Xiuwei Xu, Tianle Zhang, Yansong Tang"
+    authors: "<a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, <a href=\"https://changyuanwang17.github.io/\">Changyuan Wang</a>, <a href=\"https://openreview.net/profile?id=~Yirui_Wang4\">Yirui Wang</a>, <a href=\"https://rammusleo.github.io/\">Ao Li</a>, <a href=\"https://openreview.net/profile?id=~Shilin_Ma2\">Shilin Ma</a>, <a href=\"https://selen-suyue.github.io/\">Yue Su</a>, <a href=\"https://homepage.zhouc.ai/\">Cai Zhou</a>, <a href=\"https://xuxw98.github.io/\">Xiuwei Xu</a>, <a href=\"https://scholar.google.com/citations?user=2MXFRAMAAAAJ&amp;hl=zh-CN\">Tianle Zhang</a>, <a href=\"https://andytang15.github.io/\">Yansong Tang</a>"
     year: 2026
     conference_short: "Preprint"
     conference: "arXiv preprint, 2026"
@@ -17,7 +17,7 @@ main:
 
   - id: "onewm"
     title: "Can World and Action Modeling Benefit Each Other under Unified Causal Training?"
-    authors: "Yue Su, Bokai Lin, Xinkai Wang, <strong>Chubin Zhang</strong>, Xiangnan Wu, Kuan Zhang, Weiyang Jin, Jiwen Yu, Yiming Li, Cewu Lu, Lixin Yang, Xihui Liu"
+    authors: "<a href=\"https://selen-suyue.github.io/\">Yue Su</a>, <a href=\"https://github.com/The-kamisato-Sii\">Bokai Lin</a>, <a href=\"https://summerwxk.github.io/\">Xinkai Wang</a>, <a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, <a href=\"https://xiangnan-wu.github.io/\">Xiangnan Wu</a>, <a href=\"https://itheresaapocalypse.github.io/\">Kuan Zhang</a>, <a href=\"https://huggingface.co/Wayne-King\">Weiyang Jin</a>, <a href=\"https://yujiwen.github.io/\">Jiwen Yu</a>, <a href=\"https://yimingli-page.github.io/\">Yiming Li</a>, <a href=\"https://www.mvig.org/\">Cewu Lu</a>, <a href=\"https://lixiny.github.io/\">Lixin Yang</a>, <a href=\"https://xh-liu.github.io/\">Xihui Liu</a>"
     year: 2026
     conference_short: "Preprint"
     conference: "arXiv preprint, 2026"
@@ -31,7 +31,7 @@ main:
 
   - id: "skillmemo"
     title: "SkillMemo: Expert-guided Skill Memory Framework for Compositional Embodied Manipulation"
-    authors: "Changyuan Wang, <strong>Chubin Zhang</strong>, Zhenyu Wu, Runhao Li, Angyuan Ma, Ke Chao, Yinan Liang, Xiuwei Xu, Ziwei Wang, Yansong Tang, Jiwen Lu"
+    authors: "<a href=\"https://changyuanwang17.github.io/\">Changyuan Wang</a>, <a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, Zhenyu Wu, Runhao Li, Angyuan Ma, Ke Chao, Yinan Liang, <a href=\"https://xuxw98.github.io/\">Xiuwei Xu</a>, Ziwei Wang, <a href=\"https://andytang15.github.io/\">Yansong Tang</a>, <a href=\"https://ivg.au.tsinghua.edu.cn/Jiwen_Lu/\">Jiwen Lu</a>"
     year: 2026
     conference_short: "Preprint"
     conference: "arXiv preprint, 2026"
@@ -42,7 +42,7 @@ main:
 
   - id: "safe-pruner"
     title: "SAFE-Pruner: Semantic Attention-Guided Future-Aware Token Pruning for Efficient Vision-Language-Action Manipulation"
-    authors: "Shilin Ma, <strong>Chubin Zhang</strong>, Changyuan Wang, Yuji Wang, Yue Wu, Zixuan Wang, Jingqi Tian, Zheng Zhu, Yansong Tang"
+    authors: "<a href=\"https://openreview.net/profile?id=~Shilin_Ma2\">Shilin Ma</a>, <a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, <a href=\"https://changyuanwang17.github.io/\">Changyuan Wang</a>, Yuji Wang, Yue Wu, Zixuan Wang, Jingqi Tian, Zheng Zhu, <a href=\"https://andytang15.github.io/\">Yansong Tang</a>"
     year: 2026
     conference_short: "ECCV"
     conference: "European Conference on Computer Vision (ECCV), 2026"
@@ -53,7 +53,7 @@ main:
 
   - id: "stablevla"
     title: "StableVLA: Towards Robust Vision-Language-Action Models without Extra Data"
-    authors: "Yiyang Fu, <strong>Chubin Zhang</strong>, Shukai Gong, Yufan Deng, Kaiwei Sun, Qiyang Min, Qibin Hou, Yansong Tang, Jianan Wang, Daquan Zhou"
+    authors: "Yiyang Fu, <a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, Shukai Gong, Yufan Deng, Kaiwei Sun, Qiyang Min, Qibin Hou, <a href=\"https://andytang15.github.io/\">Yansong Tang</a>, <a href=\"https://scholar.google.com/citations?user=mt5mvZ8AAAAJ&amp;hl=en\">Jianan Wang</a>, Daquan Zhou"
     year: 2026
     conference_short: "ICML"
     conference: "International Conference on Machine Learning (ICML), 2026"
@@ -66,7 +66,7 @@ main:
 
   - id: "clap"
     title: "CLAP: Contrastive Latent Action Pretraining for Learning Vision-Language-Action Models from Human Videos"
-    authors: "<strong>Chubin Zhang</strong>, Jianan Wang, Zifeng Gao, Yue Su, Tianru Dai, Cai Zhou, Jiwen Lu, Yansong Tang"
+    authors: "<a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, <a href=\"https://scholar.google.com/citations?user=mt5mvZ8AAAAJ&amp;hl=en\">Jianan Wang</a>, <a href=\"https://gao-zifeng.github.io/\">Zifeng Gao</a>, <a href=\"https://selen-suyue.github.io/\">Yue Su</a>, Tianru Dai, <a href=\"https://homepage.zhouc.ai/\">Cai Zhou</a>, <a href=\"https://ivg.au.tsinghua.edu.cn/Jiwen_Lu/\">Jiwen Lu</a>, <a href=\"https://andytang15.github.io/\">Yansong Tang</a>"
     year: 2026
     conference_short: "Preprint"
     conference: "arXiv preprint, 2026"
@@ -80,7 +80,7 @@ main:
 
   - id: "ccdd"
     title: "Coevolutionary Continuous Discrete Diffusion: Make Your Diffusion Language Model a Latent Reasoner"
-    authors: "Cai Zhou, Chenxiao Yang, Yi Hu, Chenyu Wang, <strong>Chubin Zhang</strong>, Muhan Zhang, Lester Mackey, Tommi Jaakkola, Stephen Bates, Dinghuai Zhang"
+    authors: "<a href=\"https://homepage.zhouc.ai/\">Cai Zhou</a>, Chenxiao Yang, Yi Hu, Chenyu Wang, <a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, Muhan Zhang, Lester Mackey, Tommi Jaakkola, Stephen Bates, Dinghuai Zhang"
     year: 2026
     conference_short: "ICML"
     conference: "International Conference on Machine Learning (ICML), 2026"
@@ -93,7 +93,7 @@ main:
 
   - id: "dspv2"
     title: "DSPv2: Improved Dense Policy for Effective and Generalizable Whole-body Mobile Manipulation"
-    authors: "Yue Su, <strong>Chubin Zhang</strong>, Sijin Chen, Liufan Tan, Yansong Tang, Jianan Wang, Xihui Liu"
+    authors: "<a href=\"https://selen-suyue.github.io/\">Yue Su</a>, <a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, <a href=\"https://ch3cook-fdu.github.io/\">Sijin Chen</a>, Liufan Tan, <a href=\"https://andytang15.github.io/\">Yansong Tang</a>, <a href=\"https://scholar.google.com/citations?user=mt5mvZ8AAAAJ&amp;hl=en\">Jianan Wang</a>, <a href=\"https://xh-liu.github.io/\">Xihui Liu</a>"
     year: 2026
     conference_short: "ICRA"
     conference: "IEEE International Conference on Robotics and Automation (ICRA), 2026"
@@ -106,7 +106,7 @@ main:
 
   - id: "thinking-with-videos"
     title: "Thinking With Videos: Multimodal Tool-Augmented Reinforcement Learning for Long Video Reasoning"
-    authors: "Haoji Zhang, Xin Gu, Jiawen Li, Chixiang Ma, Sule Bai, <strong>Chubin Zhang</strong>, Bowen Zhang, Zhichao Zhou, Dongliang He, Yansong Tang"
+    authors: "<a href=\"https://zhang9302002.github.io/\">Haoji Zhang</a>, <a href=\"https://gx77.github.io/GX/\">Xin Gu</a>, Jiawen Li, Chixiang Ma, <a href=\"https://sulebai.github.io/\">Sule Bai</a>, <a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, Bowen Zhang, Zhichao Zhou, Dongliang He, <a href=\"https://andytang15.github.io/\">Yansong Tang</a>"
     year: 2026
     conference_short: "CVPR"
     conference: "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026"
@@ -120,7 +120,7 @@ main:
 
   - id: "vla-rl"
     title: "VLA-RL: Towards Masterful and General Robotic Manipulation with Scalable Reinforcement Learning"
-    authors: "Guanxing Lu, Wenkai Guo, <strong>Chubin Zhang</strong>, Yuheng Zhou, Haonan Jiang, Zifeng Gao, Yansong Tang, Ziwei Wang"
+    authors: "Guanxing Lu, Wenkai Guo, <a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, Yuheng Zhou, Haonan Jiang, <a href=\"https://gao-zifeng.github.io/\">Zifeng Gao</a>, <a href=\"https://andytang15.github.io/\">Yansong Tang</a>, Ziwei Wang"
     year: 2026
     conference_short: "IROS"
     conference: "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2026"
@@ -133,7 +133,7 @@ main:
 
   - id: "occnerf"
     title: "OccNeRF: Advancing 3D Occupancy Prediction in LiDAR-Free Environments"
-    authors: "<strong>Chubin Zhang</strong>, Juncheng Yan, Yi Wei, Jiaxin Li, Li Liu, Yansong Tang, Yueqi Duan, Jiwen Lu"
+    authors: "<a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, <a href=\"https://github.com/JunchengYan\">Juncheng Yan</a>, <a href=\"https://weiyithu.github.io/\">Yi Wei</a>, <a href=\"https://www.jiaxinli.me/\">Jiaxin Li</a>, Li Liu, <a href=\"https://andytang15.github.io/\">Yansong Tang</a>, <a href=\"https://duanyueqi.github.io/\">Yueqi Duan</a>, <a href=\"https://ivg.au.tsinghua.edu.cn/Jiwen_Lu/\">Jiwen Lu</a>"
     year: 2025
     conference_short: "TIP"
     conference: "IEEE Transactions on Image Processing (TIP), 2025"
@@ -147,7 +147,7 @@ main:
 
   - id: "geolrm"
     title: "GeoLRM: Geometry-Aware Large Reconstruction Model for High-Quality 3D Gaussian Generation"
-    authors: "<strong>Chubin Zhang</strong>, Hongliang Song, Yi Wei, Yu Chen, Jiwen Lu, Yansong Tang"
+    authors: "<a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, Hongliang Song, <a href=\"https://weiyithu.github.io/\">Yi Wei</a>, Yu Chen, <a href=\"https://ivg.au.tsinghua.edu.cn/Jiwen_Lu/\">Jiwen Lu</a>, <a href=\"https://andytang15.github.io/\">Yansong Tang</a>"
     year: 2024
     conference_short: "NeurIPS"
     conference: "Advances in Neural Information Processing Systems (NeurIPS), 2024"
@@ -160,7 +160,7 @@ main:
 
   - id: "semantic-ray"
     title: "Semantic Ray: Learning a Generalizable Semantic Field with Cross-Reprojection Attention"
-    authors: "Fangfu Liu, <strong>Chubin Zhang</strong>, Yu Zheng, Yueqi Duan"
+    authors: "<a href=\"https://liuff19.github.io/\">Fangfu Liu</a>, <a href=\"https://lin-shan.com/\"><strong>Chubin Zhang</strong></a>, <a href=\"https://yzheng97.github.io/\">Yu Zheng</a>, <a href=\"https://duanyueqi.github.io/\">Yueqi Duan</a>"
     year: 2023
     conference_short: "CVPR"
     conference: "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2023"

@@ -13,7 +13,7 @@
       <div class="pub-row">
         <div class="publication-image">
           {% if link.image %}
-          <a href="{{ link.image }}" target="_blank" rel="noopener" aria-label="View method diagram for {{ link.title | escape }}">
+          <a href="{{ link.arxiv }}" target="_blank" rel="noopener" aria-label="View arXiv abstract for {{ link.title | escape }}">
             <img src="{{ link.image }}" class="teaser" alt="Method diagram for {{ link.title | escape }}" width="1200" height="750" loading="lazy" decoding="async">
           </a>
           {% endif %}
